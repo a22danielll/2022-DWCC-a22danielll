@@ -1,5 +1,3 @@
-<script>
-function popup() {
-    alert("Hola gente")
-}
-</script>
+var texto = "hello";
+document.write(texto);
+console.log('Mensaje');
