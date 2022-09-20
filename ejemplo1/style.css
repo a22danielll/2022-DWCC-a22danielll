@@ -1,24 +1,20 @@
-body{
-    color: blue;
-    text-align: center;
-    
+body {
+  color: blue;
+  text-align: center;
 }
 
-h1{
-    color: aqua;
-    font-size:20rem;
-    padding: auto;
+h1 {
+  color: aqua;
+  font-size: 10rem;
 }
 
-h2{
-    color: red;
-    font-size:15rem;
-    padding: auto;
+h2 {
+  color: red;
+  font-size: 5rem;
 }
 
-
-p{
-    font-family:'Times New Roman';
-    color: chocolate;
-    font-size: 10rem;
+p {
+  font-family: 'Times New Roman';
+  color: chocolate;
+  font-size: 5rem;
 }
