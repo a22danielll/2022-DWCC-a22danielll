@@ -3,17 +3,18 @@ body {
 }
 
 h1 {
-  font-size: 10rem;
+  font-size: 5em;
   color: #000;
+  text-align: center;
 }
 
 h2 {
   color: red;
-  font-size: 5rem;
+  font-size: 20px;
 }
 
 p {
   font-family: 'Times New Roman';
   color: chocolate;
-  font-size: 5rem;
+  font-size: 20px;
 }
