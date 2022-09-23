@@ -7,4 +7,3 @@ alert('alerta');
 
 //mensaje pront
 let person = prompt('Mensaje pront', 'prueba');
-//incompleto
