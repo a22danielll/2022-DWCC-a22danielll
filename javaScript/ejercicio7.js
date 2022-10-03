@@ -2,4 +2,10 @@
 Ademais, fai a suma de todos os valores contidos no array e mostra por consola o resultado da suma.*/
 
 let nUsuario = prompt('numero a intriducir');
-let arr = Array();
+
+let arr = new Array();
+
+for (let i = 1; i < nUsuario; i++) {
+  arr = array(nUsuario - i);
+}
+console.log(arr);
