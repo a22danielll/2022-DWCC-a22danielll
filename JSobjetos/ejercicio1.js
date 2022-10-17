@@ -107,9 +107,9 @@ console.log(
   '1. Crea unha función á que se lle pase unha cadea e devolva unha cadea en sentido inverso.'
 );
 function reverseString(string) {
-  const texto = string.split();
+  const texto = string.split('');
   const texto2 = texto.reverse();
-  const t3 = texto2.join(' ');
+  const t3 = texto2.join('');
 
   console.log(t3);
 }
