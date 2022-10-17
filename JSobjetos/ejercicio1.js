@@ -49,9 +49,9 @@ console.log('');
 console.log(
   '5. Crea unha función á que se lle pase unha data e diga se é fin de semana.'
 );
-//const fecha5 = new Date('2022-10-17');
+
 const fecha5 = new Date('2022-10-16');
-console.log(finSemana());
+
 function finSemana() {
   if (fecha5.getDay() == 6 || fecha5.getDay() == 0) {
     console.log('Es fin de semana');
@@ -59,6 +59,7 @@ function finSemana() {
     console.log('No es fin de semana');
   }
 }
+finSemana();
 console.log('');
 console.log(
   '6. Crea unha función que reciba unha data como parámetro e devolva o número de días que pasaron dende que comezou o ano.'
@@ -66,7 +67,7 @@ console.log(
 const inicioAno = new Date('2022-01-01');
 fechaintroducir = new Date('2022-01-04');
 
-console.log(diasDiferenciaAnual(fechaintroducir, inicioAno));
+diasDiferenciaAnual(fechaintroducir, inicioAno);
 
 function diasDiferenciaAnual(fechaFinal, fechainicial) {
   const diasTotales = fechaFinal - fechainicial;
@@ -79,13 +80,40 @@ console.log('');
 console.log(
   '1.Crea unha función á que se lle pase como parámero o número de minutos e devolva un string indicando a súa equivalencia en horas e minutos.'
 );
-function equivalencia() {}
-//2. Crea unha función que dado o radio dun círculo, devolva a súa área. E fai outra función que reciba o radio e devolva o perímetro do círculo. Mostra por consola o resultado das funcións usando dúas cifras decimais.
+function equivalencia(nMinutos) {
+  const horas = nMinutos / 60;
+  const min = horas * 60;
+  console.log('Horas a minutos: ' + horas, 'minutos: ' + min);
+}
+equivalencia(3600);
+console.log(
+  '2. Crea unha función que dado o radio dun círculo, devolva a súa área.E fai outra función que reciba o radio e devolva o perímetro do círculo.Mostra por consola o resultado das funcións usando dúas cifras decimais.'
+);
 
+//A = π r²
+const radio = 0;
+function circuloArea(radio) {
+  console.log('Area circulo: ' + (area = Math.PI * (radio * radio)));
+}
+circuloArea(5);
+
+// perimetro = 2.π x r
+function perimetroCirculo(radio) {
+  console.log('Perimetro circulo: ' + (perimetro = 2 * Math.PI * radio));
+}
+perimetroCirculo(5);
 console.log('------------------------------------------------');
-//1. Crea unha función á que se lle pase unha cadea e devolva unha cadea en sentido inverso.
+console.log(
+  '1. Crea unha función á que se lle pase unha cadea e devolva unha cadea en sentido inverso.'
+);
+function reverseString(string) {
+  const texto = string.split();
+  const texto2 = texto.reverse();
+  const t3 = texto2.join(' ');
 
-//console.log(reverseString("I am a string")) // gnirts a ma I
+  console.log(t3);
+}
+reverseString('I am a string');
 
 // 2. Crea unha función á que se lle pase unha cadea e un array de caracteres e devolva a cadea orixinal eliminando os caracteres do array.
 // console.log(removeCharacters("I am an example string", ["a", "x"]));
