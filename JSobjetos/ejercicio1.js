@@ -107,17 +107,24 @@ console.log(
   '1. Crea unha función á que se lle pase unha cadea e devolva unha cadea en sentido inverso.'
 );
 function reverseString(string) {
-  const texto = string.split('');
-  const texto2 = texto.reverse();
-  const t3 = texto2.join('');
-
-  console.log(t3);
+  string = string.split('').reverse().join('');
+  console.log(string);
 }
 reverseString('I am a string');
 
 // 2. Crea unha función á que se lle pase unha cadea e un array de caracteres e devolva a cadea orixinal eliminando os caracteres do array.
-// console.log(removeCharacters("I am an example string", ["a", "x"]));
-// // I m n emple string
+
+function removeCharacters(str, arr) {
+  const text = '';
+  for (i = 0; i < arr.length; i++) {
+    str = str.replaceAll(arr[i], '');
+  }
+
+  return str;
+}
+
+console.log(removeCharacters('I am an example string', ['a', 'x']));
+// I m n emple string
 
 //3. Crea unha función á que se lle pase unha cadea e devolva o carácter máis repetido.
 //console.log(caracterMaisRepetido("abcddefg")) // d
