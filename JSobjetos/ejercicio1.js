@@ -1,4 +1,5 @@
 console.log('1. Mostra o día da semana (en letra) do 25 de xullo de 2000.');
+('use strict');
 const fecha = new Date('2000-07-25');
 const dias = [
   'domingo',
@@ -82,10 +83,11 @@ console.log(
 );
 function equivalencia(nMinutos) {
   const horas = nMinutos / 60;
-  const min = horas * 60;
-  console.log('Horas a minutos: ' + horas, 'minutos: ' + min);
+  const rhour = Math.floor(horas);
+  const min = (horas - rhour) * 60;
+  console.log('Horas : ' + Math.trunc(horas), 'minutos: ' + Math.trunc(min));
 }
-equivalencia(3600);
+equivalencia(70);
 console.log(
   '2. Crea unha función que dado o radio dun círculo, devolva a súa área.E fai outra función que reciba o radio e devolva o perímetro do círculo.Mostra por consola o resultado das funcións usando dúas cifras decimais.'
 );
@@ -126,8 +128,41 @@ function removeCharacters(str, arr) {
 console.log(removeCharacters('I am an example string', ['a', 'x']));
 // I m n emple string
 
-//3. Crea unha función á que se lle pase unha cadea e devolva o carácter máis repetido.
-//console.log(caracterMaisRepetido("abcddefg")) // d
+console.log(
+  '3. Crea unha función á que se lle pase unha cadea e devolva o carácter máis repetido.'
+);
+
+/*function caracterMaisRepetido(texto) {
+  const arrCaracteres = [];
+  const contador = 0;
+
+  contador = texto.split('');
+  for (let i = 0; i < contador.length; i++) {}
+}
+
+console.log(caracterMaisRepetido('abcddefg')); // d*/
+
+console.log(
+  '4. Crea unha función á que se lle pase unha cadea der números e devolva unha cadea  da mesma lonxitude formada por * e as últimas 4 cifras do parámetro de entrada.'
+);
+
+function enmascarar(cadena) {
+  cadena = cadena.substring(0, -4);
+  const arrCadena = [cadena];
+  for (i = 0; i < arrCadena.length; i++) {
+    cadena = cadena.replaceAll(arrCadena[i], '*');
+    return cadena;
+  }
+}
+console.log(enmascarar('1234123412347777')); // ************7777
+
+//--------------------------------------------------------------------------
+console.log(
+  '5. Escribe o código necesario para procesar unha cadea con información de voos' +
+    'como a do exemplo e mostrar a información por consola formateada como aparece na imaxe:'
+);
+const flightsInfo =
+  '_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio09433847 22;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_ Departure;scq93766109;svq2323639855;12:30';
 
 console.log('------------------------------------------------');
 // 1. Garda nun array a lista de froitas: peras, mazás, kiwis, plátanos e mandarinas.Fai os seguintes apartados con splice:
@@ -148,7 +183,7 @@ console.log('------------------------------------------------');
 //1. Dado un array cos días da semana, obtén un array cos días que empecen por “m”.
 //2. Dado un array cos días da semana, obtén o primeiro día que empeza por “m”.
 //3. Dado un array cos días da semana, obtén a posición no array do primeiro día que empeza por “m”.
-// 4. Dado un array cos días da semana, devolve outro array cos días en maiúsculas.
+//4. Dado un array cos días da semana, devolve outro array cos días en maiúsculas.
 //5. Dado un array de números, obtén o valor máis alto. (Usa algunha das funcións para traballar con arrays).
 
 console.log('------------------------------------------------');
