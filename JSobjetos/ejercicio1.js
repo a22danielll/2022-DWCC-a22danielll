@@ -132,27 +132,36 @@ console.log(
   '3. Crea unha función á que se lle pase unha cadea e devolva o carácter máis repetido.'
 );
 
-/*function caracterMaisRepetido(texto) {
-  const arrCaracteres = [];
-  const contador = 0;
-
-  contador = texto.split('');
-  for (let i = 0; i < contador.length; i++) {}
+function caracterMaisRepetido(texto) {
+    let caracter = "";
+    let max = 0;
+  for (let i = 0; i < texto.length; i++){
+      let cant = 0;
+        for ( x = i; x < texto.length; x++){
+            if (texto.charAt(i)==texto.charAt(x)) {
+                cant++;
+            }
+        }
+        if (cant > max) {
+            caracter = texto.charAt(i);
+            max = cant;
+        }
+    }
+    return caracter;
 }
 
-console.log(caracterMaisRepetido('abcddefg')); // d*/
+console.log(caracterMaisRepetido('abcddefg')); // d
 
 console.log(
   '4. Crea unha función á que se lle pase unha cadea der números e devolva unha cadea  da mesma lonxitude formada por * e as últimas 4 cifras do parámetro de entrada.'
 );
 
 function enmascarar(cadena) {
-  cadena = cadena.substring(0, -4);
-  const arrCadena = [cadena];
-  for (i = 0; i < arrCadena.length; i++) {
-    cadena = cadena.replaceAll(arrCadena[i], '*');
-    return cadena;
+  let texto = "";
+  for (i = 0; i < cadena.length -4; i++) {
+    texto = texto + "*";
   }
+  return texto+ cadena.substring(cadena.length -4);
 }
 console.log(enmascarar('1234123412347777')); // ************7777
 
@@ -161,8 +170,8 @@ console.log(
   '5. Escribe o código necesario para procesar unha cadea con información de voos' +
     'como a do exemplo e mostrar a información por consola formateada como aparece na imaxe:'
 );
-const flightsInfo =
-  '_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio09433847 22;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_ Departure;scq93766109;svq2323639855;12:30';
+const flightsInfo ='_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio09433847 22;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_ Departure;scq93766109;svq2323639855;12:30';
+
 
 console.log('------------------------------------------------');
 // 1. Garda nun array a lista de froitas: peras, mazás, kiwis, plátanos e mandarinas.Fai os seguintes apartados con splice:
