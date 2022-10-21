@@ -133,21 +133,21 @@ console.log(
 );
 
 function caracterMaisRepetido(texto) {
-    let caracter = "";
-    let max = 0;
-  for (let i = 0; i < texto.length; i++){
-      let cant = 0;
-        for ( x = i; x < texto.length; x++){
-            if (texto.charAt(i)==texto.charAt(x)) {
-                cant++;
-            }
-        }
-        if (cant > max) {
-            caracter = texto.charAt(i);
-            max = cant;
-        }
+  let caracter = '';
+  let max = 0;
+  for (let i = 0; i < texto.length; i++) {
+    let cant = 0;
+    for (x = i; x < texto.length; x++) {
+      if (texto.charAt(i) == texto.charAt(x)) {
+        cant++;
+      }
     }
-    return caracter;
+    if (cant > max) {
+      caracter = texto.charAt(i);
+      max = cant;
+    }
+  }
+  return caracter;
 }
 
 console.log(caracterMaisRepetido('abcddefg')); // d
@@ -157,55 +157,118 @@ console.log(
 );
 
 function enmascarar(cadena) {
-  let texto = "";
-  for (i = 0; i < cadena.length -4; i++) {
-    texto = texto + "*";
+  let texto = '';
+  for (i = 0; i < cadena.length - 4; i++) {
+    texto = texto + '*';
   }
-  return texto+ cadena.substring(cadena.length -4);
+
+  return texto + cadena.substring(cadena.length - 4);
 }
 console.log(enmascarar('1234123412347777')); // ************7777
 
-//--------------------------------------------------------------------------
 console.log(
-  '5. Escribe o código necesario para procesar unha cadea con información de voos' +
-    'como a do exemplo e mostrar a información por consola formateada como aparece na imaxe:'
+  '--------------------------------------------------------------------------'
 );
-const flightsInfo ='_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio09433847 22;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_ Departure;scq93766109;svq2323639855;12:30';
+console.log(
+  '5. Escribe o código necesario para procesar unha cadea con información de voos como a do exemplo e mostrar a información por consola formateada como aparece na imaxe:'
+);
+const flightsInfo =
+  '_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio09433847 22;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+_ Departure;scq93766109;svq2323639855;12:30';
 
+function formateoInfo(flightsInfo) {
+  const getCode = str => str.slice(0, 3);
+  for (const flight of flightsInfo.split('+')) {
+    const [type, from, to, time] = flight.split(';');
+    let tipo = type.replaceAll('_', ' ');
+    let origen = getCode(from);
+    let desde = getCode(to);
+    let tiempo = time.replaceAll(':', 'h');
 
-console.log('------------------------------------------------');
-// 1. Garda nun array a lista de froitas: peras, mazás, kiwis, plátanos e mandarinas.Fai os seguintes apartados con splice:
-//a. Elimina as mazás.
-//b. Engade detrás dos plátanos, laranxas e sandía.
-//c. Quita os kiwis e pon no seu lugar cereixas e nésperas.
-/*Despois de realizar cada operación, mostra por pantalla o array coa lista de froitas,
-onde os elementos estean separados por unha coma e espazo. Por exemplo,
-inicialmente o array debe mostrarse como “peras, mazás, kiwis, plátanos,
-mandarinas”.*/
+    const toString = tipo + ' ' + origen + ' ' + desde + ' ' + tiempo;
+    console.log(toString.padStart(35));
+  }
+}
 
-//2. Fai unha función que ordene as notas dun array pasado como parámetro. Por exemplo, se se pasa o array [4,8,3,10,5] debe devolver [3,4,5,8,10]. Debes utilizar a función sort e pasarlle como parámetro unha función que ti definas que serva para realizar a comparación de elementos.
-
-//3. Dado un array cos días da semana, indica se algún comeza por ‘s’. Comproba tamén se todos acaban en ‘s’
-
-console.log('------------------------------------------------');
-
-//1. Dado un array cos días da semana, obtén un array cos días que empecen por “m”.
-//2. Dado un array cos días da semana, obtén o primeiro día que empeza por “m”.
-//3. Dado un array cos días da semana, obtén a posición no array do primeiro día que empeza por “m”.
-//4. Dado un array cos días da semana, devolve outro array cos días en maiúsculas.
-//5. Dado un array de números, obtén o valor máis alto. (Usa algunha das funcións para traballar con arrays).
+formateoInfo(flightsInfo);
 
 console.log('------------------------------------------------');
+console.log('');
+console.log(
+  ' 1. Garda nun array a lista de froitas: peras, mazás, kiwis, plátanos e mandarinas.Fai os seguintes apartados con splice.'
+);
+const arr = ['peras', 'mazás', 'kiwis', 'plátanos', 'mandarinas'];
+console.log(' a.Elimina as mazás: ' + arr.splice(1, 1));
+console.log(arr);
+console.log(
+  'b. Engade detrás dos plátanos, laranxas e sandía: ' +
+    arr.splice(3, 0, 'laranxa', 'sandia')
+);
+console.log(arr);
+console.log(
+  'c. Quita os kiwis e pon no seu lugar cereixas e nésperas.' +
+    arr.splice(2, 2, 'cereais', 'nesperas')
+);
+console.log(arr);
+console.log(
+  'Despois de realizar cada operación, mostra por pantalla o array coa lista de froitas, onde os elementos estean separados por unha coma e espazo. Por exemplo,inicialmente o array debe mostrarse como “peras, mazás, kiwis, plátanos,mandarinas.'
+);
+console.log(arr);
 
-//1. Crea un obxecto chamado televisión coas propiedades marca, categoría (televisores), unidades (4), prezo (354.99) e un método chamado importe que devolva o prezo total das unidades (unidades x prezo).
+console.log('');
+console.log(
+  '2. Fai unha función que ordene as notas dun array pasado como parámetro. Por exemplo, se se pasa o array [4,8,3,10,5] debe devolver [3,4,5,8,10]. Debes utilizar a función sort e pasarlle como parámetro unha función que ti definas que serva para realizar a comparación de elementos.'
+);
+
+console.log(
+  '3. Dado un array cos días da semana, indica se algún comeza por ‘s’. Comproba tamén se todos acaban en ‘s’'
+);
+console.log('------------------------------------------------');
+
+console.log(
+  '1. Dado un array cos días da semana, obtén un array cos días que empecen por “m”'
+);
+console.log(
+  '2. Dado un array cos días da semana, obtén o primeiro día que empeza por “m”.'
+);
+console.log(
+  '3. Dado un array cos días da semana, obtén a posición no array do primeiro día que empeza por “m”.'
+);
+console.log(
+  '4. Dado un array cos días da semana, devolve outro array cos días en maiúsculas.'
+);
+console.log(
+  '5. Dado un array de números, obtén o valor máis alto. (Usa algunha das funcións para traballar con arrays).'
+);
 
 console.log('------------------------------------------------');
 
-//1. Crea unha clase chamada Produtos coas propiedades marca, categoría, unidades, prezo e un método chamado importe que devolva o prezo total das unidades (unidades x prezo). Ademais terá un método getInfo que devolverá “Nome (categoría): unidades x prezo = importe”. Crea tamén tres produtos diferentes.
-//2. Crea unha clase Televisor que herde de Produtos e teña unha nova propiedade chamada tamaño. O método getInfo mostrará o tamaño xunto ao nome.
-//3. Crea 5 produtos e gárdaos nun array. Crea as seguintes funcións (todas reciben o array como parámetro):
-//a. prodsSortBayName: devolve un array cos produtos ordenados alfabeticamente.
-//b. prodsSortByPrice: devolve un array cos produtos ordenados por importe
-//c. prodsTotalPrice: devolve o importe total dos produtos do array, con 2 decimais.
-//d. prodsWithLowUnits: ademais do array, recibe como segundo paráme tro un nº e devolve un array con todos os produtos dos que quedan menos das unidades indicadas
-//e. prodsList: devolve unha cadena que di ‘Listado de produtos:’ e en cada liña un guión e a información dun produto do array.
+console.log(
+  '1. Crea un obxecto chamado televisión coas propiedades marca, categoría (televisores), unidades (4), prezo (354.99) e un método chamado importe que devolva o prezo total das unidades (unidades x prezo).'
+);
+
+console.log('------------------------------------------------');
+
+console.log(
+  '1. Crea unha clase chamada Produtos coas propiedades marca, categoría, unidades, prezo e un método chamado importe que devolva o prezo total das unidades (unidades x prezo). Ademais terá un método getInfo que devolverá “Nome (categoría): unidades x prezo = importe”. Crea tamén tres produtos diferentes.'
+);
+console.log(
+  '2. Crea unha clase Televisor que herde de Produtos e teña unha nova propiedade chamada tamaño. O método getInfo mostrará o tamaño xunto ao nome.'
+);
+console.log(
+  '3. Crea 5 produtos e gárdaos nun array. Crea as seguintes funcións (todas reciben o array como parámetro):'
+);
+console.log(
+  'a. prodsSortBayName: devolve un array cos produtos ordenados alfabeticamente.'
+);
+console.log(
+  'b. prodsSortByPrice: devolve un array cos produtos ordenados por importe'
+);
+console.log(
+  'c. prodsTotalPrice: devolve o importe total dos produtos do array, con 2 decimais.'
+);
+console.log(
+  'd. prodsWithLowUnits: ademais do array, recibe como segundo paráme tro un nº e devolve un array con todos os produtos dos que quedan menos das unidades indicadas'
+);
+console.log(
+  'e. prodsList: devolve unha cadena que di ‘Listado de produtos:’ e en cada liña un guión e a información dun produto do array.'
+);
