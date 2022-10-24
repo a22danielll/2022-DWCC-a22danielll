@@ -400,9 +400,10 @@ let players1Final = Array(...players1.concat('Thiago', 'Coutinho', 'Periscic'));
 console.log(players1Final);
 
 console.log(
-  '2. Dado un array con nomes de variables formados por dúas palabras separadas por “_”, mostra por consola os nomes das variables en formato camelCase. Por 17 exemplo, se o array de entrada é [“first_name”, “ last_NAME”], deberase mostrar por consola “firtsName” e “lastName”.'
+  '2. Dado un array con nomes de variables formados por dúas palabras separadas por “_”, mostra por consola os nomes das variables en formato camelCase. Por exemplo, se o array de entrada é [“first_name”, “ last_NAME”], deberase mostrar por consola “firtsName” e “lastName”.'
 );
-
+let entrada = ['first_name'][' last_NAME'];
+entrada = entrada.slice;
 console.log('------------------------------------------------');
 
 console.log(
