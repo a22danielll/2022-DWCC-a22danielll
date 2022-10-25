@@ -343,6 +343,7 @@ const players = [
 console.log(
   'Utilizando o contido aprendido sobre arrays, crea unha única sentencia para cada unha das seguintes instrucións:'
 );
+console.log('');
 console.log(
   ' a. Crea as variables players1, players2 que conteña un array cos xogadores de cada equipo.'
 );
@@ -373,24 +374,24 @@ const players2 = [
   'Sancho',
   'Gotze',
 ];
-
+console.log('');
 console.log(
   'b. O primeiro xogador do array é o porteiro e o resto son xogadores de campo. Crea unha variable chamada gk que conteña o porteiro do primeiro equipo e unha variable de tipo array chamada fieldPlayers que conteña o resto de xogadores do equipo.'
 );
 let gk = players1[0];
 console.log('Portero: ' + gk);
-
+console.log('');
 let fieldPlayers = Array(...players1);
 fieldPlayers = fieldPlayers.splice(1);
 //fieldPlayers = fieldPlayers.join();
 console.log('jugadores: ' + fieldPlayers);
-
+console.log('');
 console.log(
   ' c. Crea un array allPlayers que conteña os xogadores dos dous equipos.'
 );
 let allPlayers = Array('[ ' + players1 + ' ] , [ ' + players2 + ' ]');
 console.log('Todos los jugadores: ' + allPlayers);
-
+console.log('');
 console.log(
   "d. O primeiro equipo substituiu os xogadores iniciais por 'Thiago', 'Coutinho', 'Periscic'. Crea unha nova varible de tipo array chamada players1Final que conteña os xogadores iniciais e tamén os 4 novos."
 );
@@ -398,22 +399,76 @@ console.log(
 let players1Final = Array(...players1.concat('Thiago', 'Coutinho', 'Periscic'));
 
 console.log(players1Final);
-
+console.log('');
 console.log(
   '2. Dado un array con nomes de variables formados por dúas palabras separadas por “_”, mostra por consola os nomes das variables en formato camelCase. Por exemplo, se o array de entrada é [“first_name”, “ last_NAME”], deberase mostrar por consola “firtsName” e “lastName”.'
 );
-let entrada = ['first_name'][' last_NAME'];
-entrada = entrada.slice;
+
+let entrada = ['first_name', ' last_NAME'];
+
+let camelCase = ('' + entrada).replaceAll('_', ' ').toLowerCase().split(' ');
+let camelCase2 =
+  camelCase[0] +
+  (' ' + camelCase[1]).charAt(1).toUpperCase() +
+  camelCase[1].slice(1) +
+  ' ' +
+  camelCase[2] +
+  (' ' + camelCase[1]).charAt(1).toUpperCase() +
+  camelCase[1].slice(1);
+console.log(camelCase2);
+
 console.log('------------------------------------------------');
 
 console.log(
   '1. Crea un obxecto chamado televisión coas propiedades marca, categoría (televisores), unidades (4), prezo (354.99) e un método chamado importe que devolva o prezo total das unidades (unidades x prezo).'
 );
 
-const television = [
-  'marca',
-  'categoria',
-  'unidades',
-  'prezo',
-  'prezoTotalUnidades()',
-];
+const television = {
+  marca: '',
+  categoria: 'televisores',
+  unidades: 4,
+  prezo: 354.99,
+  prezoTotalUnidades: function () {
+    let total = this.unidades * this.prezo;
+    return total;
+  },
+};
+console.log(television.prezoTotalUnidades());
+console.log('');
+console.log(
+  '2. Imaxinar que se recolle a seguinte información relativa a un xogo dun servidor:'
+);
+const game = {
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+console.log(
+  'Utilizando a desestruturación de obxectos crea unha variable para cada unha das propiedades do obxecto odds. Estas variables deben levar os nomes “team1”, “draw” e “team2”.'
+);
+
+const { team1, x: draw, team2 } = game.odds;
+console.log('Team1: ' + team1 + '\ndraw: ' + draw + '\nteam2: ' + team2);
+
+console.log('');
+console.log('3. Dado o seguinte obxecto:');
+
+const game2 = {
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+};
+console.log(
+  'a. Recorre o array game.scored e mostra por pantalla información do xogador que marcou e o número de gol marcado. Exemplo: “Gol 1: Lewandowski”.'
+);
+for (const jugador in game2) {
+  console.log(jugador.keys(game2.scared));
+}
+
+console.log('');
+
+console.log('');
+console.log(
+  'b. Crea un novo obxecto chamado scorers que conteña o nome dos xogadores que marcaron e o número de goles que marcaron como valor. Neste exemplo sería algo así: {Lewandowski: 2, Gnarby: 1, Hummels: 1}'
+);
+console.log('');
