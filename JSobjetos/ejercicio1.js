@@ -247,6 +247,11 @@ function diasSemana() {
     }
   }
 }
+
+//funciones funcionales
+console.log(dSemana.some(dia => dia.startsWith('s')));
+console.log(dSemana.some(dia => dia.endsWith('s')));
+//
 console.log(diasSemana());
 
 console.log(
@@ -264,6 +269,17 @@ function mayusculas(texto) {
 }
 console.log(mayusculas('hola que tal'));
 
+// otra funcion
+function mayusculas2(texto) {
+  const palabra = text.slice(' ');
+  console.log(palabra);
+  let salida = 0;
+  for (const palabras of palabra) {
+    salida.push(palabras.replace(palabras[0], palabras[0].toUpperCase()));
+    console.log(palabras);
+  }
+  return palabras.join();
+}
 console.log('------------------------------------------------');
 
 console.log(
@@ -292,21 +308,17 @@ console.log(diaSemana3());
 console.log(
   '4. Dado un array cos días da semana, devolve outro array cos días en maiúsculas.'
 );
-function diasMaiusculas() {
-  return (mayusculas = dSemana.map(a => a.toUpperCase()));
-}
-console.log(diasMaiusculas());
+
+console.log((mayusculas = dSemana.map(a => a.toUpperCase())));
 
 console.log(
   '5. Dado un array de números, obtén o valor máis alto. (Usa algunha das funcións para traballar con arrays).'
 );
 
-function numMasAlto() {
-  let numero = [6, 17, 8, 9, 10, 11, 12, 5, 1, 7, 18, 19];
-  return numero.sort((a, b) => b - a);
-}
-console.log(numMasAlto());
-
+let numero = [6, 17, 8, 9, 10, 11, 12, 5, 1, 7, 18, 19];
+console.log(numero.sort((a, b) => b - a));
+//otra forma
+console.log(numero.reduce((previous, current) => Math.max(previous, current)));
 console.log('------------------------------------------------');
 
 console.log(
@@ -347,6 +359,7 @@ console.log('');
 console.log(
   ' a. Crea as variables players1, players2 que conteña un array cos xogadores de cada equipo.'
 );
+/*
 const players1 = [
   'Neuer',
   'Pavard',
@@ -373,18 +386,27 @@ const players2 = [
   'Brandt',
   'Sancho',
   'Gotze',
-];
+];*/
+const [players1, players2] = players;
+console.log(players1);
+console.log(players2);
 console.log('');
 console.log(
   'b. O primeiro xogador do array é o porteiro e o resto son xogadores de campo. Crea unha variable chamada gk que conteña o porteiro do primeiro equipo e unha variable de tipo array chamada fieldPlayers que conteña o resto de xogadores do equipo.'
 );
+/*
 let gk = players1[0];
 console.log('Portero: ' + gk);
 console.log('');
 let fieldPlayers = Array(...players1);
 fieldPlayers = fieldPlayers.splice(1);
-//fieldPlayers = fieldPlayers.join();
+
 console.log('jugadores: ' + fieldPlayers);
+*/
+// otra manera
+const [gk, ...fieldPlayers] = players1;
+console.log(fieldPlayers);
+
 console.log('');
 console.log(
   ' c. Crea un array allPlayers que conteña os xogadores dos dous equipos.'
@@ -417,6 +439,13 @@ let camelCase2 =
   camelCase[1].slice(1);
 console.log(camelCase2);
 
+//otra manera
+
+for (const variable of entrada) {
+  const [first, second] = variable.toLowerCase().split('_');
+  let saida = first + second.replaceAll(second[0], second[0].toUpperCase());
+  console.log(saida);
+}
 console.log('------------------------------------------------');
 
 console.log(
@@ -461,14 +490,70 @@ const game2 = {
 console.log(
   'a. Recorre o array game.scored e mostra por pantalla información do xogador que marcou e o número de gol marcado. Exemplo: “Gol 1: Lewandowski”.'
 );
-for (const jugador in game2) {
-  console.log(jugador.keys(game2.scared));
-}
-
-console.log('');
+const mumGoles = 0;
+game2.scored.forEach((jugador, numGoles) =>
+  console.log('Gol ' + numGoles + ':' + jugador)
+);
 
 console.log('');
 console.log(
   'b. Crea un novo obxecto chamado scorers que conteña o nome dos xogadores que marcaron e o número de goles que marcaron como valor. Neste exemplo sería algo así: {Lewandowski: 2, Gnarby: 1, Hummels: 1}'
 );
+const mumGoles2 = 0;
+game2.scored.forEach((numGoles2, jugador) =>
+  console.log(numGoles2 + ':' + jugador)
+);
+
 console.log('');
+
+console.log('4. Dada a seguinte información:');
+const inventors = [
+  { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+  { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+  { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+  { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+  { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+  { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+  { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+  { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+  { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+  { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+  { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+  { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 },
+];
+console.log(
+  'a. Filtra o array de inventores e crea un array só cos inventores que naceron no século XVI.'
+);
+console.log(
+  'b. Crea un array co nome completo dos inventores. Por exemplo: ["Albert Einstein", "Isaac Newton", ...]'
+);
+console.log(
+  'c. Unha vez obtido o array co nome completo dos inventores do exercicio anterior, ordénao alfabeticamente polo apelido'
+);
+console.log('d. Ordena o array de inventores alfabeticamente polo apelido');
+console.log('e. Ordena o array de inventores pola data de nacemento');
+console.log('f. Calcula a suma dos anos que viviron todos os inventores.');
+console.log(
+  'g. Ordena os inventores polos anos que viviron, primeiro o máis lonxevo'
+);
+
+console.log(
+  '5. Dada a seguinte información, obtén un obxecto con unha propiedade para cada medio de transporte, indicando o número de veces que se repite no array. É dicir, o resultado debería ser {car: 5, truck: 3, bike: 2, walk: 2, van: 2, pogostick: 1}'
+);
+const data = [
+  'car',
+  'car',
+  'truck',
+  'truck',
+  'bike',
+  'walk',
+  'car',
+  'van',
+  'bike',
+  'walk',
+  'car',
+  'van',
+  'car',
+  'truck',
+  'pogostick',
+];
