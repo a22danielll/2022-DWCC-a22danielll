@@ -494,7 +494,7 @@ const mumGoles = 0;
 game2.scored.forEach((jugador, numGoles) =>
   console.log('Gol ' + numGoles + ':' + jugador)
 );
-
+//------------ ------------- --------- --------- -------------------- --------
 console.log('');
 console.log(
   'b. Crea un novo obxecto chamado scorers que conteña o nome dos xogadores que marcaron e o número de goles que marcaron como valor. Neste exemplo sería algo así: {Lewandowski: 2, Gnarby: 1, Hummels: 1}'
