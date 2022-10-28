@@ -499,10 +499,12 @@ console.log('');
 console.log(
   'b. Crea un novo obxecto chamado scorers que conteña o nome dos xogadores que marcaron e o número de goles que marcaron como valor. Neste exemplo sería algo así: {Lewandowski: 2, Gnarby: 1, Hummels: 1}'
 );
-const mumGoles2 = 0;
-game2.scored.forEach((numGoles2, jugador) =>
-  console.log(numGoles2 + ':' + jugador)
-);
+
+const scorers = {};
+for (const xogador of game2.scored) {
+  scorers[xogador] ? scorers[xogador]++ : (scorers[xogador] = 1);
+}
+console.log(scorers);
 
 console.log('');
 
@@ -524,18 +526,39 @@ const inventors = [
 console.log(
   'a. Filtra o array de inventores e crea un array só cos inventores que naceron no século XVI.'
 );
+const inventoresXVI = inventors.filter(
+  inventors => inventors.year > 1500 && inventors.year < 1600
+);
+console.log(inventoresXVI);
 console.log(
   'b. Crea un array co nome completo dos inventores. Por exemplo: ["Albert Einstein", "Isaac Newton", ...]'
 );
+
+const inventores2 = inventors.map(
+  inventor2 => inventor2.first + ' ' + inventor2.last
+);
+console.log(inventores2);
+
 console.log(
   'c. Unha vez obtido o array co nome completo dos inventores do exercicio anterior, ordénao alfabeticamente polo apelido'
 );
+const inventores3 = inventores2.sort();
+console.log(inventores3);
 console.log('d. Ordena o array de inventores alfabeticamente polo apelido');
 console.log('e. Ordena o array de inventores pola data de nacemento');
 console.log('f. Calcula a suma dos anos que viviron todos os inventores.');
+let suma = 0;
+const inventores6 = inventors.map(
+  inventor6 => (suma += inventor6.passed - inventor6.year)
+);
+console.log(inventores6);
+
 console.log(
   'g. Ordena os inventores polos anos que viviron, primeiro o máis lonxevo'
 );
+
+const inventor7 = inventors.map(inventor7 => inventor7.passed - inventor7.year);
+console.log(inventor7.sort((a, b) => b - a));
 
 console.log(
   '5. Dada a seguinte información, obtén un obxecto con unha propiedade para cada medio de transporte, indicando o número de veces que se repite no array. É dicir, o resultado debería ser {car: 5, truck: 3, bike: 2, walk: 2, van: 2, pogostick: 1}'
