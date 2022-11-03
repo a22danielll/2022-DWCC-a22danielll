@@ -1,3 +1,5 @@
+console.log('-----------DATE(FECHAS)----------------');
+
 console.log('1. Mostra o día da semana (en letra) do 25 de xullo de 2000.');
 ('use strict');
 const fecha = new Date('2000-07-25');
@@ -76,7 +78,7 @@ function diasDiferenciaAnual(fechaFinal, fechainicial) {
   console.log(diasTotales / Math.floor(1000 * 60 * 60 * 24) + ' dias');
 }
 console.log('');
-console.log('------------------------------------------------');
+console.log('---------------Math -------------------');
 console.log('');
 console.log(
   '1.Crea unha función á que se lle pase como parámero o número de minutos e devolva un string indicando a súa equivalencia en horas e minutos.'
@@ -104,7 +106,9 @@ function perimetroCirculo(radio) {
   console.log('Perimetro circulo: ' + (perimetro = 2 * Math.PI * radio));
 }
 perimetroCirculo(5);
-console.log('------------------------------------------------');
+console.log('');
+console.log('-----------Strings-------------');
+console.log('');
 console.log(
   '1. Crea unha función á que se lle pase unha cadea e devolva unha cadea en sentido inverso.'
 );
@@ -188,8 +192,8 @@ function formateoInfo(flightsInfo) {
 }
 
 formateoInfo(flightsInfo);
-
-console.log('------------------------------------------------');
+console.log('');
+console.log('---------------Arrays---------------');
 console.log('');
 console.log(
   ' 1. Garda nun array a lista de froitas: peras, mazás, kiwis, plátanos e mandarinas.Fai os seguintes apartados con splice.'
@@ -280,8 +284,9 @@ function mayusculas2(texto) {
   }
   return palabras.join();
 }
-console.log('------------------------------------------------');
-
+console.log('');
+console.log('--------------Arrays 2------------------');
+console.log('');
 console.log(
   '1. Dado un array cos días da semana, obtén un array cos días que empecen por “m”'
 );
@@ -319,8 +324,9 @@ let numero = [6, 17, 8, 9, 10, 11, 12, 5, 1, 7, 18, 19];
 console.log(numero.sort((a, b) => b - a));
 //otra forma
 console.log(numero.reduce((previous, current) => Math.max(previous, current)));
-console.log('------------------------------------------------');
-
+console.log('');
+console.log('----------------Arrays 3---------------');
+console.log('');
 console.log(
   '1.Imaxinar que se recolle a seguinte información relativa a un xogo dun servidor web:'
 );
@@ -446,8 +452,9 @@ for (const variable of entrada) {
   let saida = first + second.replaceAll(second[0], second[0].toUpperCase());
   console.log(saida);
 }
-console.log('------------------------------------------------');
-
+console.log('');
+console.log('------------Objetos-------------------');
+console.log('');
 console.log(
   '1. Crea un obxecto chamado televisión coas propiedades marca, categoría (televisores), unidades (4), prezo (354.99) e un método chamado importe que devolva o prezo total das unidades (unidades x prezo).'
 );
@@ -527,7 +534,7 @@ console.log(
   'a. Filtra o array de inventores e crea un array só cos inventores que naceron no século XVI.'
 );
 const inventoresXVI = inventors.filter(
-  inventors => inventors.year > 1500 && inventors.year < 1600
+  inventor => inventor.year > 1500 && inventor.year < 1600
 );
 console.log(inventoresXVI);
 console.log(
@@ -535,30 +542,51 @@ console.log(
 );
 
 const inventores2 = inventors.map(
-  inventor2 => inventor2.first + ' ' + inventor2.last
+  inventor => inventor.first + ' ' + inventor.last
 );
 console.log(inventores2);
 
 console.log(
   'c. Unha vez obtido o array co nome completo dos inventores do exercicio anterior, ordénao alfabeticamente polo apelido'
 );
-const inventores3 = inventores2.sort();
-console.log(inventores3);
+function sortLastNames(pname, fname) {
+  let a = pname.split(' ');
+  let b = fname.split(' ');
+  /*if (a[1] > b[1]) return 1;
+  if (b[1] > a[1]) return -1;
+  return 0;*/
+  return a[1] > b[1] ? 1 : -1;
+}
+inventores2.sort(sortLastNames);
+console.log(inventores2);
 console.log('d. Ordena o array de inventores alfabeticamente polo apelido');
-console.log('e. Ordena o array de inventores pola data de nacemento');
-console.log('f. Calcula a suma dos anos que viviron todos os inventores.');
-let suma = 0;
-const inventores6 = inventors.map(
-  inventor6 => (suma += inventor6.passed - inventor6.year)
+const apellidosInventores = inventors.sort((a, b) =>
+  a.last < b.last ? -1 : 1
 );
-console.log(inventores6);
+console.table(apellidosInventores);
+console.log('e. Ordena o array de inventores pola data de nacemento');
+const anosInventores = inventors.sort((a, b) => (a.year < b.year ? -1 : 1));
+console.table(anosInventores);
+console.log('f. Calcula a suma dos anos que viviron todos os inventores.');
+
+let sum2 = 0;
+const sumaAnos = inventors.reduce((previousValues, currentValues) => {
+  let nacemento = currentValues.year;
+  let morrer = currentValues.passed;
+  let total = morrer - nacemento;
+  sum2 += total;
+  return sum2;
+}, sum2);
+
+console.log(sumaAnos);
 
 console.log(
   'g. Ordena os inventores polos anos que viviron, primeiro o máis lonxevo'
 );
 
-const inventor7 = inventors.map(inventor7 => inventor7.passed - inventor7.year);
-console.log(inventor7.sort((a, b) => b - a));
+console.table(
+  inventors.sort((a, b) => (a.passed - a.year > b.passed - b.year ? -1 : 1))
+);
 
 console.log(
   '5. Dada a seguinte información, obtén un obxecto con unha propiedade para cada medio de transporte, indicando o número de veces que se repite no array. É dicir, o resultado debería ser {car: 5, truck: 3, bike: 2, walk: 2, van: 2, pogostick: 1}'
@@ -580,3 +608,169 @@ const data = [
   'truck',
   'pogostick',
 ];
+
+let data2 = {};
+for (const medioTransporte of data) {
+  if (data2[medioTransporte]) data2[medioTransporte]++;
+  else data2[medioTransporte] = 1;
+}
+
+console.table(data2);
+console.log('');
+console.log('---------------Maps -----------------');
+console.log('');
+console.log(
+  '1. O seguinte mapa almacena información dos eventos ocorridos durante un partido indicando o minuto no que se produciron:'
+);
+
+const gameEvents = new Map([
+  [17, 'GOAL'],
+  [36, 'Substitution'],
+  [47, 'GOAL'],
+  [61, 'Substitution'],
+  [64, 'Yellow card'],
+  [69, 'Red card'],
+  [70, 'Substitution'],
+  [72, 'Substitution'],
+  [76, 'GOAL'],
+  [80, 'GOAL'],
+  [92, 'Yellow card'],
+]);
+
+console.log(
+  'a. Crea un novo array chamado eventos que almacene os diferentes eventos (non o minuto) ocorridos durante o partido (sen que haxa duplicados).'
+);
+
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+console.log(
+  'b. Recorre con un bucle o mapa gameEvents e mostra información de cada evento, indicando se ocorreu na primeira metade ou na segunda metade do partido, por exemplo: [PRIMEIRA PARTE] 17: GOAL.'
+);
+for (const [minuto, evento] of gameEvents) {
+  if (minuto <= 45) {
+    console.log(`[primera parte] ${minuto} : ${evento}`);
+  } else {
+    console.log(`[segunda parte] ${minuto} : ${evento}`);
+  }
+}
+console.log('');
+console.log('---------------Programacion orientada a objetos -----------------');
+console.log('');
+console.log(
+  '1. Crea unha clase chamada Produto coas propiedades marca, categoría, unidades, prezo e un método chamado importe que devolva o prezo total das unidades (unidades x prezo). Ademais terá un método getInfo que devolverá “Categoría (marca): unidades x prezo = importe”. Crea tres obxectos diferentes da clase Produto.'
+);
+class Producto{
+  marca;
+  categoria;
+  unidades;
+  prezo;
+
+  importe() {
+    let valor = this.unidades * this.prezo;
+  }
+  getInfo() {
+    return  this.categoria(this.marca)= this.unidades * this.prezo == importe();
+  }
+}
+
+
+console.log(
+  '2. Crea unha clase Televisor que herde de Produto e teña unha nova propiedade chamada tamaño. O método getInfo mostrará o tamaño, ademais do resultado do método getInfo da calse ancestra.'
+);
+console.log(
+  '3. Crea 5 produtos e gárdaos nun array. Crea as seguintes funcións (todas reciben o array como parámetro):'
+);
+
+let listaProductos = ['p1', 'p2', 'p3', 'p4', 'p5'];
+
+function productosSortCategoria(lProductos) {
+  let copiaProd = [...lProductos];
+  lProductos.sort((a, b) => (a.categoria > b.categoria ? 1 : -1));
+  return copiaProd;
+}
+
+console.table(productosSortCategoria(listaProductos));
+
+console.log(
+  'a. prodsSortByCategory: devolve un array cos produtos ordenados alfabeticamente por categoría.'
+);
+console.log(
+  'b. prodsSortByPrice: devolve un array cos produtos ordenados por importe de maior a menor.'
+);
+console.log(
+  'c. prodsTotalPrice: devolve o importe total dos produtos do array, con dúas cifras decimais.'
+);
+console.log(
+  'd. prodsWithLowUnits: ademais do array, recibe como segundo parámetro un número de unidades e devolve un array con todos os produtos dos que quedan menos das unidades indicadas'
+);
+console.log(
+  'e. prodsList: devolve unha cadena que di ‘Listado de produtos:’ e en cada liña un guión e a información dun produto do array.'
+);
+/*
+function prodsList(lProductos) {
+  let resultado = "lista de produtos";
+  Array.forEach((Producto) => {
+    resultado += "- " + Producto.getInfo() + "\n ";
+  });
+  return resultado;
+}
+
+console.table(prodsList(listaProductos));*/
+
+console.log('');
+console.log('--------------EXPRESIONES REGULARES------------');
+console.log('');
+console.log('1. Escribe unha expresión regular para comprobar que cada un dos seguintes elementos aparece nunha cadea.');
+console.log('a.car e cat ');
+verify(/car|cat/, ["my car", "bad cats"], ["camper", "high art"])
+
+console.log('b.pop e prop ');
+verify(/pop|prop/, ["pop culture", "mad props"], ["plop", "prrrop"]);
+
+console.log('c.ferret, ferry e ferrari'); 
+verify(/ferret|ferry|ferrari/, ["ferret", "ferry", "ferrari"], ["ferrum", "transfer A"]);
+console.log('d.Calquera palabra rematada en ious'); 
+verify(/ious\b/, ["how delicious", "spacious room"], [ "ruinous", "consciousness"]);
+console.log('e.Un espazo seguido de punto, como, dous puntos ou punto e coma.');
+console.log('f.Unha palabra con máis de 6 letras.');
+console.log('g.Unha palabra sen a letra e(ou E).');
+console.log(' Unha vez teñas a expresión regular creada, comproba se se pode facer máis pequena.' + '\n' + 'Utiliza o seguinte código para comprobar o resultado:');
+
+
+
+
+
+verify(/.../, ["bad punctuation ."], ["escape the period"]);
+verify(
+/.../,
+["Siebentausenddreihundertzweiundzwanzig"],
+["no", "three small words"]
+);
+verify(/.../, ["red platypus", "wobbling nest"], ["earth bed", "learning ape", "BEET"]);
+function verify(regexp, yes, no) {
+// Ignore unfinished exercises
+if (regexp.source == "...") return;
+for (let str of yes) if (!regexp.test(str)) {
+console.log(`Failure to match '${str}'`);
+}
+for (let str of no) if (regexp.test(str)) {
+console.log(`Unexpected match for '${str}'`);
+}
+}
+
+console.log(' 2. Unha dirección de rede MAC está composta por 6 grupos de dous números hexadecimais separados por “:”. Por exemplo "01:32:54:67:89:AB".'+'\n'+
+'Escribe unha expresión regular que comprobe se unha dirección MAC é correcta.');
+console.log(' 3. Crea unha expresión regular para buscar códigos de cores no formato #RGB ou #RRGGBB nun texto. Un código de color é unha cadea formada polo carácter “#” seguido de 3 ou 6 cifras hexadecimais.');
+console.log(' 4. Escribe unha expresión regular para números. Debe incluír números enteiros, decimais e números negativos. Así, na cadea "-1.2 4 0 -123.5." debe encontrar 4 número ');
+console.log(' 5. Crea unha función que comprobe se un contrasinal é válido, é dicir, cumpre as seguintes condicións:');
+console.log(' a. Mínimo 8 caracteres.');
+console.log(' b. Sen espazos en branco.');
+console.log(' c. Que teña, polo menos, 3 das seguintes tipos de caracteres:');
+console.log(' i. maiúsculas');
+console.log(' ii. minúsculas');
+console.log(' iii. números');
+console.log(' iv. caracteres especiais: ¡!$?%&#@/\()=¿?*[];,:._<>+-');
+console.log(' 6. Ás veces é útil eliminar as etiquetas HTML dun texto para evitar que se inclúa código mal intencionado nunha páxina web. Crea unha función á que se lle pase un texto e devolva o mesmo texto coas etiquetas HTML eliminadas.');
+  console.log(" 7. Dado o seguinte array de insultos, fai un script tal que cada vez que apareza un deles nun texto o substitúa pola primeira letra do insulto e un número de asteriscos igual á lonxitude do insulto - 1.");
+let insultos = ["testán", "langrán", "fervellasverzas", "baldreu", "lacazán", "pillabán"];
+console.log(' Así, por exemplo, cada vez que apareza testán nun texto, debe substituírse por "t*****".');
