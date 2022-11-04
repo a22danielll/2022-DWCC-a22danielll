@@ -729,24 +729,26 @@ verify(/pop|prop/, ["pop culture", "mad props"], ["plop", "prrrop"]);
 
 console.log('c.ferret, ferry e ferrari'); 
 verify(/ferret|ferry|ferrari/, ["ferret", "ferry", "ferrari"], ["ferrum", "transfer A"]);
+
 console.log('d.Calquera palabra rematada en ious'); 
-verify(/ious\b/, ["how delicious", "spacious room"], [ "ruinous", "consciousness"]);
+verify(/ious\b/, ["how delicious", "spacious room"], ["ruinous", "consciousness"]);
+
 console.log('e.Un espazo seguido de punto, como, dous puntos ou punto e coma.');
+verify(/\s\.|:|;/, ["bad punctuation ."], ["escape the period"]);
+
 console.log('f.Unha palabra con máis de 6 letras.');
-console.log('g.Unha palabra sen a letra e(ou E).');
-console.log(' Unha vez teñas a expresión regular creada, comproba se se pode facer máis pequena.' + '\n' + 'Utiliza o seguinte código para comprobar o resultado:');
-
-
-
-
-
-verify(/.../, ["bad punctuation ."], ["escape the period"]);
 verify(
-/.../,
+/[a-zA-Z]{6,}/,
 ["Siebentausenddreihundertzweiundzwanzig"],
 ["no", "three small words"]
 );
-verify(/.../, ["red platypus", "wobbling nest"], ["earth bed", "learning ape", "BEET"]);
+
+console.log('g.Unha palabra sen a letra e(ou E).');
+verify(/\w[^e]+\b\i/, ["red platypus", "wobbling nest"], ["earth bed", "learning ape", "BEET"]);
+
+console.log(' Unha vez teñas a expresión regular creada, comproba se se pode facer máis pequena.' + '\n' + 'Utiliza o seguinte código para comprobar o resultado:');
+
+
 function verify(regexp, yes, no) {
 // Ignore unfinished exercises
 if (regexp.source == "...") return;
@@ -770,7 +772,13 @@ console.log(' i. maiúsculas');
 console.log(' ii. minúsculas');
 console.log(' iii. números');
 console.log(' iv. caracteres especiais: ¡!$?%&#@/\()=¿?*[];,:._<>+-');
+
+let contraseña = 'abc123.';
+let reg6 = /[{8,}{^\s}{a-zA-Z0-9}[3,][¡!$?%&#@/()=¿?*[];,:._<>+-]]/;
+console.log(reg6.exec(contraseña));
+
 console.log(' 6. Ás veces é útil eliminar as etiquetas HTML dun texto para evitar que se inclúa código mal intencionado nunha páxina web. Crea unha función á que se lle pase un texto e devolva o mesmo texto coas etiquetas HTML eliminadas.');
   console.log(" 7. Dado o seguinte array de insultos, fai un script tal que cada vez que apareza un deles nun texto o substitúa pola primeira letra do insulto e un número de asteriscos igual á lonxitude do insulto - 1.");
 let insultos = ["testán", "langrán", "fervellasverzas", "baldreu", "lacazán", "pillabán"];
 console.log(' Así, por exemplo, cada vez que apareza testán nun texto, debe substituírse por "t*****".');
+
