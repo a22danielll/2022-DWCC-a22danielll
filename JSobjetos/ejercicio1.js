@@ -768,17 +768,21 @@ console.log(' 5. Crea unha función que comprobe se un contrasinal é válido, �
 console.log(' a. Mínimo 8 caracteres.');
 console.log(' b. Sen espazos en branco.');
 console.log(' c. Que teña, polo menos, 3 das seguintes tipos de caracteres:');
-console.log(' i. maiúsculas');
-console.log(' ii. minúsculas');
-console.log(' iii. números');
-console.log(' iv. caracteres especiais: ¡!$?%&#@/\()=¿?*[];,:._<>+-');
+console.log('   i. maiúsculas');
+console.log('   ii. minúsculas');
+console.log('   iii. números');
+console.log('   iv. caracteres especiais: ¡!$?%&#@/\()=¿?*[];,:._<>+-');
 
 let contraseña = 'abc123.';
-let reg6 = /[{8,}{^\s}{a-zA-Z0-9}[3,][¡!$?%&#@/()=¿?*[];,:._<>+-]]/;
+let reg6 = /{8,}[^\s][a-zA-Z0-9][¡!$?%&#@/()=¿?*;,:._<>+-]/;
 console.log(reg6.exec(contraseña));
 
 console.log(' 6. Ás veces é útil eliminar as etiquetas HTML dun texto para evitar que se inclúa código mal intencionado nunha páxina web. Crea unha función á que se lle pase un texto e devolva o mesmo texto coas etiquetas HTML eliminadas.');
   console.log(" 7. Dado o seguinte array de insultos, fai un script tal que cada vez que apareza un deles nun texto o substitúa pola primeira letra do insulto e un número de asteriscos igual á lonxitude do insulto - 1.");
 let insultos = ["testán", "langrán", "fervellasverzas", "baldreu", "lacazán", "pillabán"];
 console.log(' Así, por exemplo, cada vez que apareza testán nun texto, debe substituírse por "t*****".');
+
+
+let reg7 = /[a-z]\*/;
+console.log(reg7.exec(insultos));
 
