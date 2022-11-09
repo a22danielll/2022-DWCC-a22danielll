@@ -773,12 +773,62 @@ console.log('   ii. minúsculas');
 console.log('   iii. números');
 console.log('   iv. caracteres especiais: ¡!$?%&#@/\()=¿?*[];,:._<>+-');
 
-let contraseña = 'abc123.';
-let reg6 = /{8,}[^\s][a-zA-Z0-9][¡!$?%&#@/()=¿?*;,:._<>+-]/;
-console.log(reg6.exec(contraseña));
+//let contraseña = 'abc123.';
+//let reg6 = /\w{8,}[\s][a-zA-Z0-9][¡!$?%&#@/\()=¿?*[];,:._<>+-']/;
+//console.log(reg6.exec(contraseña));
+
+const minimo = new RegExp(/\w{8,}/);
+const noSpace = new RegExp(/[^\s]/);
+const mayusculas = new RegExp(/[A-Z]/);
+const minusculas = new RegExp(/[a-z]/);
+const numeros = new RegExp(/[0-9]/);
+const caracteresEspeciales = new RegExp(/[¡!$?%&#@/\\()=¿?*[];,:._<>+-]/);
+//y luego haces una función que filtre
+function comprobacionContraseña(contraseña) {
+  let check = true;
+  let count = 0;
+  if (!minimo.test(contraseña)) {
+    check == false;
+    return "Error con el minimo de caracteres";
+  }
+  if (!noSpace.test(contraseña)) {
+    check === false;
+    return "Error la contrasela no debe tener ningun espacio";
+  }
+  if (mayusculas.test(contraseña)) {
+    if (count >= 3) {
+      count++;
+    }
+  } 
+  if (minusculas.test(contraseña)) {
+    if (count >= 3) {
+      count++;
+    }
+  }
+  if (numero.test(contraseña)) {
+    if (count >= 3) {
+      count++;
+    }
+  }
+  if (caracteresEspeciales.test(contraseña)) {
+    if (count >= 3) {
+      count++;
+    }
+  }
+}
+
+console.log(comprobacionContraseña("abc123.") ? "válida" : "non válida");
 
 console.log(' 6. Ás veces é útil eliminar as etiquetas HTML dun texto para evitar que se inclúa código mal intencionado nunha páxina web. Crea unha función á que se lle pase un texto e devolva o mesmo texto coas etiquetas HTML eliminadas.');
-  console.log(" 7. Dado o seguinte array de insultos, fai un script tal que cada vez que apareza un deles nun texto o substitúa pola primeira letra do insulto e un número de asteriscos igual á lonxitude do insulto - 1.");
+function eliminarHTML(texto) {
+  let remove = /<*>/g;
+  texto = texto.replace(remove, '');
+  return texto;
+}
+
+console.log("<!DOCTYPE html><html><head><meta charset='utf-8'><title>Mi pagina de prueba</title></head><body><img src='images/firefox-icon.png' alt='Mi imagen de prueba'></body></html>");
+
+console.log(" 7. Dado o seguinte array de insultos, fai un script tal que cada vez que apareza un deles nun texto o substitúa pola primeira letra do insulto e un número de asteriscos igual á lonxitude do insulto - 1.");
 let insultos = ["testán", "langrán", "fervellasverzas", "baldreu", "lacazán", "pillabán"];
 console.log(' Así, por exemplo, cada vez que apareza testán nun texto, debe substituírse por "t*****".');
 
