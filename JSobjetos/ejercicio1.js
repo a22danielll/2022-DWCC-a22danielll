@@ -817,7 +817,7 @@ function comprobacionContraseña(contraseña) {
   }
 }
 
-console.log(comprobacionContraseña("abc123.") ? "válida" : "non válida");
+console.log(comprobacionContraseña("abc123.") ? "valida" : "no valida");
 
 console.log(' 6. Ás veces é útil eliminar as etiquetas HTML dun texto para evitar que se inclúa código mal intencionado nunha páxina web. Crea unha función á que se lle pase un texto e devolva o mesmo texto coas etiquetas HTML eliminadas.');
 function eliminarHTML(texto) {
@@ -826,7 +826,7 @@ function eliminarHTML(texto) {
   return texto;
 }
 
-console.log("<!DOCTYPE html><html><head><meta charset='utf-8'><title>Mi pagina de prueba</title></head><body><img src='images/firefox-icon.png' alt='Mi imagen de prueba'></body></html>");
+console.log("<!DOCTYPE html><html><head><meta charset='utf-8'><title>Mi pagina de prueba</title></head><body><img src='images/firefox-icon.png' alt='Mi imagen de prueba'><p>texto prueba</p></body></html>");
 
 console.log(" 7. Dado o seguinte array de insultos, fai un script tal que cada vez que apareza un deles nun texto o substitúa pola primeira letra do insulto e un número de asteriscos igual á lonxitude do insulto - 1.");
 let insultos = ["testán", "langrán", "fervellasverzas", "baldreu", "lacazán", "pillabán"];
