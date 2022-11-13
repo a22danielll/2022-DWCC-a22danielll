@@ -6,6 +6,7 @@ console.log('Todos os elementos label dentro da táboa (debería haber 3).');
 document.body.getElementsByTagName("label");
 
 console.log(' O primeiro td da táboa.');
+document.getElementsByTagName("td")[0];
 
 console.log(' O form con name="search".');
 document.getElementsByName("search")[0];
