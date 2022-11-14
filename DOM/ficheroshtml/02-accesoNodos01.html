@@ -1,45 +1,46 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <body>
+    <form name="search">
+      <label
+        >Buscar na páxina:
+        <input type="text" name="search" />
+      </label>
+      <input type="submit" value="Search!" />
+    </form>
 
-<body>
-  <form name="search">
-    <label>Buscar na páxina:
-      <input type="text" name="search">
-    </label>
-    <input type="submit" value="Search!">
-  </form>
+    <hr />
 
-  <hr>
+    <form name="search-person">
+      Buscar os visitantes:
+      <table id="age-table">
+        <tr>
+          <td>Idade:</td>
+          <td id="age-list">
+            <label>
+              <input type="radio" name="age" value="young" />menor de 18</label
+            >
+            <label>
+              <input type="radio" name="age" value="mature" />18-50</label
+            >
+            <label>
+              <input type="radio" name="age" value="senior" />maior de 50</label
+            >
+          </td>
+        </tr>
 
-  <form name="search-person">
-    Buscar os visitantes:
-    <table id="age-table">
-      <tr>
-        <td>Idade:</td>
-        <td id="age-list">
-          <label>
-            <input type="radio" name="age" value="young">menor de 18</label>
-          <label>
-            <input type="radio" name="age" value="mature">18-50</label>
-          <label>
-            <input type="radio" name="age" value="senior">maior de 50</label>
-        </td>
-      </tr>
+        <tr>
+          <td>Máis:</td>
+          <td>
+            <input type="text" name="info[0]" />
+            <input type="text" name="info[1]" />
+            <input type="text" name="info[2]" />
+          </td>
+        </tr>
+      </table>
 
-      <tr>
-        <td>Máis:</td>
-        <td>
-          <input type="text" name="info[0]">
-          <input type="text" name="info[1]">
-          <input type="text" name="info[2]">
-        </td>
-      </tr>
-
-    </table>
-
-    <input type="submit" value="Search!">
-  </form>
-  <script src="02-accesoNodos01.js" defer></script>
-</body>
-
+      <input type="submit" value="Search!" />
+    </form>
+    <script src="02-accesoNodos01.js" defer></script>
+  </body>
 </html>
