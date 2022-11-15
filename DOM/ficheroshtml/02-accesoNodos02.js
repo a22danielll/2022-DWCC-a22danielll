@@ -14,4 +14,7 @@ console.log(document.getElementsByTagName('input'));
 console.log('● Só os inputs con nome “sexo”.');
 console.log(document.getElementsByName('sexo'));
 console.log('● Os items da lista con clase “important”.');
-console.log(document.getElementsByClassName('important'));
+console.log(
+  document.getElementsByTagName('ul')[0].getElementsByClassName('important')
+);
+console.log(document.querySelectorAll('ul .important'));

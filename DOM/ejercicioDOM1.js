@@ -26,3 +26,10 @@ console.log(
 console.log(
   'Investiga en internet como cambiar a cor de fondo dunha cela mediante JavaScript'
 );
+let table1 = document.body.children['tabla'];
+console.log(table1);
+let rowNumber = table1.rows.length;
+for (let i = 0; i < rowNumber; i++) {
+  console.log(table1.rows[i].cells[i]);
+  table1.rows[i].cells[i].style.backgroundcolor = 'red';
+}
