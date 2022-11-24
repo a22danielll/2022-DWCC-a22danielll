@@ -55,6 +55,7 @@ newLi3.append(newLiId2);
 document.body.append(newLiId);
 console.log(document.getElementById('listaULExercicio5'));
 
+console.log('----------------------------------');
 console.log('6. Dado un obxecto como o seguinte:');
 console.log(
   'Crea unha función createTree(data) que devolva unha lista ul/li coma a da imaxe da dereita, para os datos proporcionados.'
@@ -80,7 +81,58 @@ let arbore = {
     },
   },
 };
+
 function createTree(data) {
-  let arr = arbore.entries();
+  let obxeto = Object.entries(data);
+  let ul = document.createElement('ul');
+  let ul2 = document.createElement('ul');
+  let ul3 = document.createElement('ul');
+
+  let list = document.createElement('nav');
+  for ([key, value] of obxeto) {
+    let li = document.createElement('li');
+    list.append(ul);
+    li.innerHTML = key;
+    ul.append(li);
+    document.body.append(ul);
+
+    let values = Object.entries(value);
+
+    for ([key, value] of values) {
+      li.append(ul2);
+      let li2 = document.createElement('ul');
+      li2.innerHTML = key;
+      ul2.after(li2);
+      document.body.append(ul2);
+      let values2 = Object.entries(value);
+      for ([key, value] of values2) {
+        li2.append(ul3);
+        let li3 = document.createElement('ul');
+        li3.innerHTML = key;
+        ul3.after(li3);
+        document.body.append(ul3);
+      }
+    }
+  }
 }
-console.log(createTree(data));
+
+createTree(arbore);
+
+console.log(
+  'Escribe unha función crearCalendario(elemento, ano, mes) que engada ao elemento pasado como parámetro un calendario do ano e mes  indicados.'
+);
+console.log(
+  ' O calendario debe ser unha táboa, onde cada semana é un <tr> e cada día un <td>. A cabeceira da táboa está creada con <th>.'
+);
+console.log(
+  ' Por exemplo, o calendario resultado de chamar á función cos seguintes parámetros vese na imaxe seguinte. Observar que se aplicaron estilos CSS para mellorar o aspecto.'
+);
+
+function crearCalendario(elemento, ano, mes) {
+  let semana = document.createElement('table');
+  let tr = document.createElement('tr');
+  tr.append(semana);
+  document.body.append(tr);
+}
+
+crearCalendario(calendario, 2022, 11);
