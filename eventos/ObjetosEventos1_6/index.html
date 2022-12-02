@@ -42,7 +42,19 @@
     </div>
 
     <script>
-      // ... tu código...
+      let boton = document.getElementsByClassName('remove-button');
+
+      let div = document.getElementsByClassName('pane');
+      let container = document.getElementById('container');
+      let h3 = document.getElementsByTagName('h3');
+      let p = document.getElementsByTagName('p');
+
+      boton.addEventListener('click', function () {
+        if (div[0]) {
+          h3[0].remove();
+          p[0].remove();
+        }
+      });
     </script>
   </body>
 </html>
