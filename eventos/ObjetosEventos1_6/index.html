@@ -49,10 +49,17 @@
       let h3 = document.getElementsByTagName('h3');
       let p = document.getElementsByTagName('p');
 
-      boton.addEventListener('click', function () {
+      document.addEventListener('click', function () {
         if (div[0]) {
-          h3[0].remove();
-          p[0].remove();
+          div[0].remove();
+        }
+        if (div[1]) {
+          p[1].remove();
+          h3[1].remove();
+        }
+        if (boton[2]) {
+          p[2].remove();
+          h3[2].remove();
         }
       });
     </script>
