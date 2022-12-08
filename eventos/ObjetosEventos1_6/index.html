@@ -42,14 +42,20 @@
     </div>
 
     <script>
-      let boton = document.getElementsByClassName('remove-button');
+      let boton = document.getElementsByClassName("remove-button");
 
-      let div = document.getElementsByClassName('pane');
-      let container = document.getElementById('container');
-      let h3 = document.getElementsByTagName('h3');
-      let p = document.getElementsByTagName('p');
+      let divs = document.getElementsByClassName("pane");
+      let container = document.getElementById("container");
+      let h3 = document.getElementsByTagName("h3");
+      let p = document.getElementsByTagName("p");
 
-      document.addEventListener('click', function () {
+      for (let btnEliminar of boton) {
+        btnEliminar.addEventListener("click", function (e) {
+          boton = e.target.closest("div");
+          boton.remove();
+        });
+      }
+      /*document.addEventListener('click', function () {
         if (div[0]) {
           div[0].remove();
         }
@@ -61,7 +67,9 @@
           p[2].remove();
           h3[2].remove();
         }
-      });
+
+
+      });*/
     </script>
   </body>
 </html>
