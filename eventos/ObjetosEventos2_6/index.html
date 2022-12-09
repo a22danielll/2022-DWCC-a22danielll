@@ -48,13 +48,18 @@
     </ul>
   </body>
   <script>
-    const lista = document.getElementById("tree");
-      const ul = document.querySelector("ul");
-        
+    let lista = document.getElementById('tree');
+    let ul = document.getElementsByTagName('ul');
 
-      lista.addEventListener("click", function(e){
-        let li = ul.target.children;
-        
-      });
+    lista.addEventListener('click', function (ul) {
+      let li = ul.target.children;
+      for (let list of li) {
+        if (list.hidden == false) {
+          list.hidden = true;
+        } else {
+          list.hidden = false;
+        }
+      }
+    });
   </script>
 </html>
