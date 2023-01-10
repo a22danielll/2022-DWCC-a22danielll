@@ -1,29 +1,24 @@
-/*let rango = setInterval(escribirNumeros, 1000, 1, 10);*/
-let numero = 0;
-
 function escribirNumeros(desde, ata) {
-  numero = desde;
   let rep = setInterval(() => {
-    console.log(numero);
-    if (numero == ata) {
+    console.log(desde);
+    if (desde == ata) {
       clearInterval(rep);
     } else {
-      numero++;
+      desde++;
     }
   }, 1000);
 }
 
-//escribirNumeros(1, 4);
+escribirNumeros(1, 4);
 
-//corregir
 function escribirNumerosTimeOut(desde, ata) {
-  let numero2 = desde;
   let rep2 = setTimeout(() => {
-    console.log(numero2);
-    if (numero2 == ata) {
+    if (desde == ata) {
       clearTimeout(rep2);
     } else {
-      numero2++;
+      console.log(desde);
+      desde++;
+      escribirNumerosTimeOut(desde, ata);
     }
   }, 1000);
 }
