@@ -9,16 +9,53 @@
   <body>
     <script>
       const respuesta = new XMLHttpRequest();
-      respuesta.addEventListener('load', () => {
-        console.log(respuesta.responseText);
-      });
+
       respuesta.open(
         'GET',
         'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json'
       );
-
+      respuesta.responseType = 'json';
       // send request
-      respuesta.send();
+      respuesta.send('');
+      respuesta.addEventListener('load', () => {
+        console.log(respuesta.response);
+        let gatos = respuesta.response;
+
+        console.log(
+          'Os nomes das gatas son ' +
+            gatos[0].name +
+            ', ' +
+            gatos[1].name +
+            ' y ' +
+            gatos[2].name
+        );
+      });
+
+      let macho = 0;
+      let femia = 0;
+      respuesta.addEventListener('load', () => {
+        gatos = respuesta.response;
+        for (let i = 0; i < gatos.length; i++) {
+          for (let j = 0; j < gatos[i].kittens.length; j++) {
+            if (gatos[i].kittens[j].gender == 'm') {
+              macho++;
+            }
+            if (gatos[i].kittens[j].gender == 'f') {
+              femia++;
+            }
+          }
+        }
+        let total = femia + macho;
+        console.log(
+          'Hai ' +
+            total +
+            ' gatiños:' +
+            femia +
+            ' femias e ' +
+            macho +
+            ' machos'
+        );
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Our superheroes</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Faster+One"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header></header>
+
+    <section></section>
+
+    <script>
+      let heroes = new XMLHttpRequest();
+
+      heroes.open(
+        'GET',
+        'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+      );
+      heroes.responseType = 'json';
+      // send request
+      heroes.send('');
+
+      heroes.addEventListener('load', () => {
+        let contenido = heroes.response;
+
+        let header = document.getElementsByTagName('header');
+        let section = document.getElementsByTagName('section');
+        let h1 = document.createElement('h1');
+        let article = document.createElement('article');
+        h1.append(header);
+        article.append(section);
+        h1.innerHTML = contenido.squadName;
+
+        document.body.append(h1);
+      });
+    </script>
+  </body>
+</html>
