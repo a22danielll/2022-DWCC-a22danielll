@@ -8,13 +8,39 @@
   </head>
   <body>
     <script>
-      'ise strict';
-      const promise = new Promise((resolve, reject) => {
-        setTimeout(() => resolve('ola mundo'), 1000);
+      'use strict';
+
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('ola mundo'), 3000);
       });
       //then-> una vez que la promesa este resuelta
       //imprime ola mundo
-      promise.then(data => console.log(data));
+      promise1.then(data => console.log(data));
+
+      function ejercicio2(num) {
+        return new Promise(function (resolve, reject) {
+          if (!Number.isInteger(num)) {
+            reject(new Error('Fallo'));
+          }
+
+          if (num % 2 != 0) {
+            setTimeout(() => resolve('impart'), 1000);
+          }
+
+          if (num % 2 == 0) {
+            setTimeout(() => resolve('par'), 2000);
+          }
+        });
+      }
+
+      let promesa2 = ejercicio2(3);
+      promesa2.then(data => console.log(data));
+
+      let promise = new Promise(function (resolve, reject) {
+        resolve(1);
+        setTimeout(() => resolve(2), 1000);
+      });
+      promise.then(console.log);
     </script>
   </body>
 </html>
