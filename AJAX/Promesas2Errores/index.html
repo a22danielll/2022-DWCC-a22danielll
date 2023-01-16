@@ -19,7 +19,7 @@
       promise.then(f1, f2);
       */
       console.log(
-        '\n - No, no son iguales los dos fragmentos de codigo. \n - Si se produce un error en f1 saltara el error de f2'
+        '\n - No, no son iguales los dos fragmentos de codigo. \n - Si se produce un error en f1 saltara el error de f2, pero solo en el segundo caso.'
       );
 
       //ejercicio2
@@ -36,11 +36,11 @@
         .then(() => console.log('Success 2'))
         .then(() => console.log('Success 3'))
         .catch(() => console.log('Error 1(ejercicio2 de errores)'))
-        .then(() => console.log('Success 4 (ejercicio 2 de errores)'));
+        .then(() => console.log('Success 4 (ejercicio 2 de errores)'));*/
 
       console.log(
-        '\n - La salida será primero el error ya que en la funcion se esta devolviendo un error'
-      );*/
+        '\n - La salida será primero el error ya que en la funcion se esta devolviendo un error, para controlar el error antes \n y despues se devolvera la siguiente promesa resuelta'
+      );
       console.log('\n -------');
       //ejercicio3
       console.log('3. ¿Cal é a saída do seguinte código? ¿Por que?');
