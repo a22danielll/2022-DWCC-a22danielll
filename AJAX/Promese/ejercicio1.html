@@ -10,6 +10,7 @@
     <script>
       'use strict';
 
+      //ejercicio1
       const promise1 = new Promise((resolve, reject) => {
         setTimeout(() => resolve('ola mundo'), 3000);
       });
@@ -17,6 +18,7 @@
       //imprime ola mundo
       promise1.then(data => console.log(data));
 
+      //ejercicio2
       function ejercicio2(num) {
         return new Promise(function (resolve, reject) {
           if (!Number.isInteger(num)) {
@@ -24,7 +26,7 @@
           }
 
           if (num % 2 != 0) {
-            setTimeout(() => resolve('impart'), 1000);
+            setTimeout(() => resolve('impar'), 1000);
           }
 
           if (num % 2 == 0) {
@@ -36,11 +38,22 @@
       let promesa2 = ejercicio2(3);
       promesa2.then(data => console.log(data));
 
+      //ejercicio3
       let promise = new Promise(function (resolve, reject) {
         resolve(1);
         setTimeout(() => resolve(2), 1000);
       });
       promise.then(console.log);
+
+      //ejercicio4
+      function delay(ms) {
+        return new Promise(function (resolve, reject) {
+          setTimeout(() => resolve(), ms);
+        });
+      }
+      delay(3000).then(() =>
+        console.log('Mensaxe obtida despois de 3 segundos')
+      );
     </script>
   </body>
 </html>
