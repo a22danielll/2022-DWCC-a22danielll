@@ -36,7 +36,10 @@
       }
 
       let promesa2 = ejercicio2(3);
-      promesa2.then(data => console.log(data));
+      promesa2.then(
+        data => console.log(data),
+        erro => console.log(erro)
+      );
 
       //ejercicio3
       let promise = new Promise(function (resolve, reject) {

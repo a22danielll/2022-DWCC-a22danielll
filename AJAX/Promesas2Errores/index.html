@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Manejo de errores</h1>
+    <script>
+      'use strict';
+      //ejercicio1
+      console.log(
+        '1. ¿Son iguais os seguintes fragmentos de código? ¿Que pasa se se produce un erro en f1?'
+      );
+      /*
+      promise.then(f1).catch(f2);
+      promise.then(f1, f2);
+      */
+      console.log(
+        '\n - No, no son iguales los dos fragmentos de codigo. \n - Si se produce un error en f1 saltara el error de f2'
+      );
+
+      //ejercicio2
+      console.log('\n2. ¿Cal é a saída do seguinte código? ¿Por que?');
+
+      function job() {
+        return new Promise(function (resolve, reject) {
+          reject();
+        });
+      }
+      let promise = job();
+      promise
+        .then(() => console.log('Success 1'))
+        .then(() => console.log('Success 2'))
+        .then(() => console.log('Success 3'))
+        .catch(() => console.log('Error 1(ejercicio2 de errores)'))
+        .then(() => console.log('Success 4 (ejercicio 2 de errores)'));
+
+      console.log(
+        '\n - La salida será primero el error ya que en la funcion se esta devolviendo un error'
+      );
+      console.log('\n -------');
+      //ejercicio3
+      console.log('3. ¿Cal é a saída do seguinte código? ¿Por que?');
+      function job(state) {
+        return new Promise(function (resolve, reject) {
+          if (state) {
+            resolve('success');
+          } else {
+            reject('error');
+          }
+        });
+      }
+
+      let promesas3 = job(true);
+      promesas3
+        .then(function (data) {
+          console.log(data);
+          return job(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+          return 'Error caught';
+        })
+        .then(function (data) {
+          console.log(data);
+          return job(true);
+        })
+        .catch(error => console.log(error));
+
+      console.log(
+        '\n - La salida primera sera success, despues, error y por ultimo  error caught.\n   Porque se esta indicando un dato con valor verdadero.'
+      );
+    </script>
+  </body>
+</html>
