@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>pokemon</h1>
+    <h2></h2>
+    <input type="submit" id="actualizar" name="actualizar" value="actualizar" />
+    <script>
+      let body = document.getElementsByTagName('body');
+      let btn = document.getElementById('actualizar');
+      let h2 = document.getElementsByTagName('h2')[0];
+      let h1 = document.getElementsByTagName('h1')[0];
+      let img = document.createElement('img');
+      let p = document.createElement('p');
+
+      let mostrar = e => {
+        let id = Math.floor(Math.random() * 1008);
+        let ruta = 'https://pokeapi.co/api/v2/pokemon/';
+        let url = ruta + id;
+        let promesa = fetch(url)
+          .then(response => {
+            if (response.ok) return response.json();
+            return promesa.reject(response);
+          })
+          .then(function (pokemon) {
+            console.log(pokemon);
+            let imagen = pokemon['sprites'].other.home.front_default;
+            img.setAttribute('src', imagen);
+            document.body.append(img);
+            h2.textContent = pokemon.name;
+            document.h1.append(h2);
+
+            p.innerHTML = pokemon.abilities;
+            for (let i = 0; i < p.ability.length; i++) {
+              const element = p.ability[i];
+              p.innerHTML = element.name;
+              document.body.append(p);
+            }
+          });
+      };
+      btn.addEventListener('click', mostrar);
+    </script>
+  </body>
+</html>
