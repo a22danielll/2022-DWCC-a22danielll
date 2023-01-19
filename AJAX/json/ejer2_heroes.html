@@ -29,9 +29,9 @@
       requester.addEventListener("load", (e) => {
         heroes = requester.response;
         console.log();
-        let squad = document.createElement("h1");
-        squad.textContent = heroes.squadName;
-        document.getElementsByTagName("header")[0].append(squad);
+        let h1 = document.createElement("h1");
+        h1.textContent = heroes.squadName;
+        document.getElementsByTagName("header")[0].append(h1);
         let hometown = document.createElement("p");
         hometown.textContent = `Hometown: ${heroes.homeTown} // Formed: ${heroes.formed}`;
         document.getElementsByTagName("header")[0].append(hometown);
@@ -40,12 +40,12 @@
           let hero = heroes.members[i];
 
           let article = document.createElement("article");
-          let superul = document.createElement("ul");
+          let ul = document.createElement("ul");
 
           hero.powers.forEach((power) => {
-            let powerli = document.createElement("li");
-            powerli.textContent = power;
-            superul.append(powerli);
+            let li = document.createElement("li");
+            li.textContent = power;
+            ul.append(li);
           });
 
           article.innerHTML = `
@@ -55,7 +55,7 @@
         <p>Superpowers:</p>
       `;
 
-          article.append(superul);
+          article.append(ul);
           document.getElementsByTagName("section")[0].append(article);
         }
       });
