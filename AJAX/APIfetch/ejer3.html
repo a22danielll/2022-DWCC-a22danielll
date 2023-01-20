@@ -9,6 +9,7 @@
   <body>
     <h1>pokemon</h1>
     <h2></h2>
+
     <input type="submit" id="actualizar" name="actualizar" value="actualizar" />
     <script>
       let body = document.getElementsByTagName('body');
@@ -16,34 +17,54 @@
       let h2 = document.getElementsByTagName('h2')[0];
       let h1 = document.getElementsByTagName('h1')[0];
       let img = document.createElement('img');
-      let p = document.createElement('p');
 
-      let mostrar = e => {
-        let id = Math.floor(Math.random() * 1008);
-        let ruta = 'https://pokeapi.co/api/v2/pokemon/';
-        let url = ruta + id;
-        let promesa = fetch(url)
-          .then(response => {
-            if (response.ok) return response.json();
-            return promesa.reject(response);
-          })
-          .then(function (pokemon) {
-            console.log(pokemon);
-            let imagen = pokemon['sprites'].other.home.front_default;
-            img.setAttribute('src', imagen);
-            document.body.append(img);
-            h2.textContent = pokemon.name;
-            document.h1.append(h2);
+      btn.addEventListener(
+        'click',
+        (mostrar = e => {
+          console.log(e);
+          let id = Math.floor(Math.random() * 1008);
+          let ruta = 'https://pokeapi.co/api/v2/pokemon/';
+          let url = ruta + id;
+          let div = document.createElement('div');
+          let p = document.createElement('p');
+          let promesa = fetch(url)
+            .then(response => {
+              if (response.ok) return response.json();
+              return promesa.reject(response);
+            })
+            .then(function (pokemon) {
+              console.log(pokemon);
+              let imagen = pokemon['sprites'].other.home.front_default;
+              img.setAttribute('src', imagen);
+              document.body.append(img);
+              h2.textContent = pokemon.name;
+              //body.append(h2);
 
-            p.innerHTML = pokemon.abilities;
-            for (let i = 0; i < p.ability.length; i++) {
-              const element = p.ability[i];
-              p.innerHTML = element.name;
-              document.body.append(p);
-            }
-          });
-      };
-      btn.addEventListener('click', mostrar);
+              let skill = pokemon.abilities;
+              for (let i = 0; i < skill.length; i++) {
+                let element = skill[i];
+                let p = document.createElement('p');
+                p.textContent = element.ability.name;
+                document.body.append(p);
+                console.log(p);
+              }
+              m2();
+            });
+        })
+      );
+
+      function m2(pokemon) {
+        let skill = pokemon.abilities;
+        for (let i = 0; i < skill.length; i++) {
+          let element = skill[i];
+
+          p.textContent = element.ability.name;
+          document.body.append(div);
+          //document.body.append(p);
+          div.append(p);
+          console.log(div);
+        }
+      }
     </script>
   </body>
 </html>
