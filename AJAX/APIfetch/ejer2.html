@@ -11,20 +11,28 @@
     <form>
       <labe id="id"> Introduce id: </labe>
       <input type="text" name="idValue" id="idValue" />
-      <input type="submit" id="buscar" name="buscar" value="buscar" />
+      <input type="submit" id="btn" name="buscar" value="buscar" />
     </form>
-    <script>
-      let idUser = document.getElementById(idValue.value);
-      let btn = document.getElementById(buscar);
+    <div>
+      <table>
+        <tbody id="main"></tbody>
+      </table>
+    </div>
 
+    <script>
+      let idUser = document.getElementById(idValue);
+      let btn = document.getElementById(btn);
+
+      btn.addEventListener
+      
       let link = fetch(
-        'https://jsonplaceholder.typicode.com/posts?userId=' + idUser
+        "https://jsonplaceholder.typicode.com/posts?userId=" + idUser
       )
-        .then(response => {
+        .then((response) => {
           if (response.ok) return response.json();
           return promesa.reject(response);
         })
-        .then(posts => {
+        .then((posts) => {
           console.log(posts);
         });
     </script>
