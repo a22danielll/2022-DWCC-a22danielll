@@ -8,52 +8,54 @@
   </head>
   <body>
     <h1>pokemon</h1>
-    <h2></h2>
+    <h2 id="pokemon"></h2>
+    <img id="img" />
+    <div id="abilities">
+      <p></p>
+    </div>
 
     <input type="submit" id="actualizar" name="actualizar" value="actualizar" />
     <script>
-      let body = document.getElementsByTagName('body');
-      let btn = document.getElementById('actualizar');
-      let h2 = document.getElementsByTagName('h2')[0];
-      let h1 = document.getElementsByTagName('h1')[0];
-      let img = document.createElement('img');
+      let body = document.getElementsByTagName("body");
+      let btn = document.getElementById("actualizar");
+      let h2 = document.getElementsByTagName("h2")[0];
+      let h1 = document.getElementsByTagName("h1")[0];
+      let img = document.createElement("img");
 
       btn.addEventListener(
-        'click',
-        (mostrar = e => {
-          console.log(e);
-          let id = Math.floor(Math.random() * 1008);
-          let ruta = 'https://pokeapi.co/api/v2/pokemon/';
-          let url = ruta + id;
-          let div = document.createElement('div');
-          let p = document.createElement('p');
-          let promesa = fetch(url)
-            .then(response => {
-              if (response.ok) return response.json();
-              return promesa.reject(response);
-            })
-            .then(function (pokemon) {
-              console.log(pokemon);
-              let imagen = pokemon['sprites'].other.home.front_default;
-              img.setAttribute('src', imagen);
-              document.body.append(img);
-              h2.textContent = pokemon.name;
-              //body.append(h2);
+        "click",
+        (mostrar = (e) => {
+          let url = "https://pokeapi.co/api/v2/pokemon/";
+          let url2 = "https://pokeapi.co/api/v2/ability/";
 
-              let skill = pokemon.abilities;
-              for (let i = 0; i < skill.length; i++) {
-                let element = skill[i];
-                let p = document.createElement('p');
-                p.textContent = element.ability.name;
-                document.body.append(p);
-                console.log(p);
-              }
-              m2();
+          let id = Math.floor(Math.random() * 1000) + 1;
+
+          let pokemon = document.getElementById("pokemon");
+          let img = document.getElementById("img");
+          let abilities = document.getElementById("abilities");
+
+          fetch(url + id)
+            .then((response) => response.json())
+            .then((data) => {
+              pokemon.innerHTML = data.name;
+              img.src = data.sprites.other.home.front_default;
+              data.abilities.forEach((element) => {
+                let ability = document.createElement("p");
+                ability.innerHTML = element.ability.name;
+                abilities.appendChild(ability);
+                fetch(url2 + element.ability.name)
+                  .then((response) => response.json())
+                  .then((data) => {
+                    let habilidades = document.getElementsByTagName("p");
+                    habilidades.innerHTML = data.name;
+                    abilities.appendChild(habilidades);
+                  });
+              });
             });
         })
       );
 
-      function m2(pokemon) {
+      /*function m2(pokemon) {
         let skill = pokemon.abilities;
         for (let i = 0; i < skill.length; i++) {
           let element = skill[i];
@@ -64,7 +66,7 @@
           div.append(p);
           console.log(div);
         }
-      }
+      }*/
     </script>
   </body>
 </html>
