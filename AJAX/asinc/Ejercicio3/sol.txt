@@ -1,0 +1,43 @@
+const fetch = require("node-fetch");
+
+async function obterUsuarios(listadoNomes) {
+let resultado = [];
+
+for (let i = 0; i < listadoNomes.length; i++) {
+const response = await fetch(`https://api.github.com/users/${listadoNomes[i]}`);
+if (response.ok) {
+const userData = await response.json();
+resultado[i] = userData;
+} else {
+resultado[i] = null;
+}
+}
+
+return resultado;
+}
+
+// Pruebas unitarias:
+
+describe('obterUsuarios', () => {
+
+    it('Debe devolver un array de usuarios', async () => {
+
+        const listaUsuarios = ['juanpabloprz', 'otrousuario'];
+
+        const usuariosEsperados = [{login: 'juanpabloprz', ...}, {login: 'otrousuario', ...}];
+
+        const usuariosObtenidos = await obterUsuarios(listaUsuarios);
+
+        expect(usuariosObtenidos).toEqual(usuariosEsperados);
+
+    });
+
+    it('Debe devolver null si el usuario no existe', async () => {
+
+        const listaUsuarios = ['juanpabloprz', 'usuarionoexiste'];
+
+        const usuariosEsperados = [{login: 'juanpabloprz', ...}, null];
+
+        const usuariosObtenidos = await obterUsuarios(listaUsuarios);
+
+        expect(usuariosObtenidos).toEqual(usuariosEsperados);    												   });  });
