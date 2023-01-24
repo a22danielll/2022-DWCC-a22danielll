@@ -22,6 +22,9 @@
             <th>superficie</th>
             <th>Capital</th>
           </tr>
+          <tr>
+            <td id="datos"></td>
+          </tr>
         </table>
       </div>
     </div>
@@ -36,22 +39,29 @@
       Configura tamén a táboa para que ao pulsar sobre unha fila se mostre toda a
       información dese municipio que hai no ficheiro JSON.
          */
-
-      async function municipio() {
-        let url =
-          'http://mestre.iessanclemente.net/pluginfile.php/40562/mod_resource/content/66/15-municipiosCoruna.json';
-        try {
-          let response = await fetch(url);
-
-          if (response.ok) {
-            let json = response.json();
-          } else {
-            throw new Error('error');
+          let td = document.getElementById('datos');
+          let info = 'Comunidad Autónoma';
+          async function wait() {
+            try {
+              let response = await fetch("https://mestre.iessanclemente.net/pluginfile.php/40562/mod_resource/content/66/15-municipiosCoruna.json");
+              if (!response.ok) throw new Error("Erro");
+            } catch(Erro){
+              console.log(Erro);
+            }
           }
-        } catch (err) {
-          console.log(err);
-        }
-      }
+
+          buscar.addEventListener('click', function(){
+            let letra = document.getElementById('letra');
+          });
+          
+            /*wait().then( function(municipio){
+              console.log(municipio);
+              td.innerHTML = municipio.habitantes;
+            }
+              
+            );*/
+          
+
     </script>
   </body>
 </html>
