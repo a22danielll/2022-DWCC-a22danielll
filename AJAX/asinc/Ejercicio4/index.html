@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Minicipios la coruña</h1>
+    
+      <form>
+        <p>Letra de comienzo del municipio:</p>
+        <input type="text" name="letra" id="letra" />
+        <input type="submit" name="buscar" id="buscar" value="buscar"></input>
+      </form>
+      <div>
+        <table id="tabla">
+          <tr>
+            <th>Nombre</th>
+            <th>Habitantes</th>
+            <th>superficie</th>
+            <th>Capital</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      /*https://mestre.iessanclemente.net/pluginfile.php/40562/mod_resource/content/66/15-municipiosCoruna.json*/
+      /*Descarga o ficheiro municipiosCoruna.json. Coa información do ficheiro descargado
+      crea unha páxina web onde se mostre nunha táboa a información dos municipios da
+      Coruña (Nome, número de habitantes, superficie e capital).
+      Engade á túa páxina web unha caixa de texto de tal forma que cada vez que se
+      escriba unha letra se mostren na táboa só os municipios que teñan un nome que
+      comece polo texto escrito.
+      Configura tamén a táboa para que ao pulsar sobre unha fila se mostre toda a
+      información dese municipio que hai no ficheiro JSON.
+         */
+
+      async function municipio() {
+        let url =
+          'http://mestre.iessanclemente.net/pluginfile.php/40562/mod_resource/content/66/15-municipiosCoruna.json';
+        try {
+          let response = await fetch(url);
+
+          if (response.ok) {
+            let json = response.json();
+          } else {
+            throw new Error('error');
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    </script>
+  </body>
+</html>
