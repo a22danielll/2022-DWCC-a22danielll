@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <h1>Tienda</h1>
+      <label>Teléfono: </label>
+      <input type="text" name="text" id="text" />
+      <input type="submit" value="buscar telefono" id="buscar" />
+      <br /><br />
+      <label>Pedidos: </label>
+      <input type="text" id="pedido" />
+      <input type="submit" value="buscar Pedido" id="buscarPedido" />
+    </form>
+    <h3 id="telefono"></h3>
+    <h3 id="enderezo"></h3>
+    <script>
+      let texto = document.getElementById('text');
+      let buscar = document.getElementById('buscar');
+      let telefono = document.getElementById('telefono');
+      let enderezo = document.getElementById('enderezo');
+      let pedido = document.getElementById('pedido');
+      let buscarPedido = document.getElementById('buscarPedido');
+
+      buscar.addEventListener('click', function () {
+        texto.innerHTML = 'rua da panasqueira';
+      });
+    </script>
+  </body>
+</html>
