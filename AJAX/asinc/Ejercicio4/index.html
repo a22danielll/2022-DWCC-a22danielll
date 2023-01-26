@@ -9,7 +9,7 @@
   <body>
     <h1>Minicipios la coruña</h1>
     
-      <form>
+      <form id="formulario">
         <p>Letra de comienzo del municipio:</p>
         <input type="text" name="letra" id="letra" />
         <input type="submit" name="buscar" id="buscar" value="buscar"></input>
@@ -22,8 +22,11 @@
             <th>superficie</th>
             <th>Capital</th>
           </tr>
-          <tr>
-            <td id="datos"></td>
+          <tr id="denominacion">
+            <td id="nombre"></td>
+            <td id="habitantes"></td>
+            <td id="superficie"></td>
+            <td id="capital"></td>
           </tr>
         </table>
       </div>
@@ -39,29 +42,40 @@
       Configura tamén a táboa para que ao pulsar sobre unha fila se mostre toda a
       información dese municipio que hai no ficheiro JSON.
          */
-          let td = document.getElementById('datos');
-          let info = 'Comunidad Autónoma';
-          async function wait() {
-            try {
-              let response = await fetch("https://mestre.iessanclemente.net/pluginfile.php/40562/mod_resource/content/66/15-municipiosCoruna.json");
-              if (!response.ok) throw new Error("Erro");
-            } catch(Erro){
-              console.log(Erro);
-            }
-          }
 
-          buscar.addEventListener('click', function(){
-            let letra = document.getElementById('letra');
-          });
+      async function  municipios(){
+        let response = await fetch('municipiosCoruna.json');
+        let json = await response.json();
+        return json;
+      }
           
-            /*wait().then( function(municipio){
-              console.log(municipio);
-              td.innerHTML = municipio.habitantes;
-            }
-              
-            );*/
-          
+      buscar.addEventListener('click',
+      municipios().then(municipios=>{
+        let tabla = document.getElementById('tabla');
+        municipios.forEach(element => {
+          let denominacion = document.getElementById('denominacion');
+          let nombre = document.getElementById('nombre');
+          let habitantes = document.getElementById('habitantes');
+          let superficie= document.getElementById('superficie');
+          let capital = document.getElementById('capital');
 
+          nombre.innerHTML = element.Denominación;
+          habitantes.innerHTML = element.Habitantes;
+          superficie.innerHTML = element.Superficie;
+          capital.innerHTML =  element.Capitalidad;
+
+        });
+        return municipios;
+      })
+      .then(municipios=>{
+        let texto = document.getElementById('letra');
+        
+      }
+
+      )
+      
+      );
+          
     </script>
   </body>
 </html>
