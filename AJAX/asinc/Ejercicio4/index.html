@@ -43,8 +43,16 @@
       información dese municipio que hai no ficheiro JSON.
          */
 
-         let nombre = document.getElementById('Nombre');
-         let habitantes = document.getElementById('');
+         let nombre = document.getElementById('Denominación');
+         let habitantes = document.getElementById('Habitantes');
+         let superficie = document.getElementById('Superficie');
+         let capital = document.getElementById('Capitalidade');
+
+        async function municipios(){
+          let response = await fetch('municipiosCoruna.json');
+          let json = await response.json();
+          return json;
+        }
           
           
 
