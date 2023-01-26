@@ -22,7 +22,7 @@
             <th>superficie</th>
             <th>Capital</th>
           </tr>
-          <tr id="denominacion">
+          <tr>
             <td id="nombre"></td>
             <td id="habitantes"></td>
             <td id="superficie"></td>
@@ -43,39 +43,11 @@
       información dese municipio que hai no ficheiro JSON.
          */
 
-      async function  municipios(){
-        let response = await fetch('municipiosCoruna.json');
-        let json = await response.json();
-        return json;
-      }
+         let nombre = document.getElementById('Nombre');
+         let habitantes = document.getElementById('');
           
-      buscar.addEventListener('click',
-      municipios().then(municipios=>{
-        let tabla = document.getElementById('tabla');
-        municipios.forEach(element => {
-          let denominacion = document.getElementById('denominacion');
-          let nombre = document.getElementById('nombre');
-          let habitantes = document.getElementById('habitantes');
-          let superficie= document.getElementById('superficie');
-          let capital = document.getElementById('capital');
-
-          nombre.innerHTML = element.Denominación;
-          habitantes.innerHTML = element.Habitantes;
-          superficie.innerHTML = element.Superficie;
-          capital.innerHTML =  element.Capitalidad;
-
-        });
-        return municipios;
-      })
-      .then(municipios=>{
-        let texto = document.getElementById('letra');
-        
-      }
-
-      )
-      
-      );
           
+
     </script>
   </body>
 </html>
