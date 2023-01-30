@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <title>Storage</title>
+  </head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <body>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          aria-describedby="nameHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="check1" />
+        <label class="form-check-label" for="exampleCheck1">Check 1</label>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="check2" />
+        <label class="form-check-label">Check 2</label>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="radio" class="form-check-input" id="radio1" />
+        <label class="form-radio-label">radio 1</label>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="radio" class="form-check-input" id="radio2" />
+        <label class="form-radio-label">radio 2</label>
+      </div>
+      <button type="submit" id="btn" class="btn btn-primary">validar</button>
+    </form>
+    <script>
+      let boton = document.getElementById('btn');
+
+      boton.addEventListener('click', function (e) {
+        /*Captura de datos escrito en los inputs*/
+        let nombre = document.getElementById('nombre').value;
+        let apellido = document.getElementById('apellido').value;
+        let check1 = document.getElementById('check1').checked;
+        let check2 = document.getElementById('check2').checked;
+        let radio1 = document.getElementById('radio1').select;
+        let radio2 = document.getElementById('radio2').select;
+
+        /*Guardando los datos en el LocalStorage*/
+        localStorage.setItem('Nombre', nombre);
+        localStorage.setItem('Apellido', apellido);
+        localStorage.setItem('Check1', check1);
+        localStorage.setItem('Check2', check2);
+        localStorage.setItem('Radio1', radio1);
+        localStorage.setItem('Radio2', radio2);
+
+        /*Obteniendo los datos introducidos*/
+        let nombre2 = localStorage.getItem('Nombre');
+        let apellido2 = localStorage.getItem('Apellido');
+        let checks1 = localStorage.getItem('Check1');
+        let checks2 = localStorage.getItem('Check2');
+        let radios1 = localStorage.getItem('Radio1');
+        let radios2 = localStorage.getItem('Radio2');
+        console.log(nombre2);
+      });
+    </script>
+  </body>
+</html>
