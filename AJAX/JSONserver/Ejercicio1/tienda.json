@@ -2,7 +2,17 @@
   "clientes": [
     {
       "Numero": "666 66 66 66",
-      "Enderezo": "Rua da panasqueira n5",
+      "Enderezo": "Rua da panasqueira",
+      "Pedido": "compra super"
+    },
+    {
+      "Numero": "693 62 46 94",
+      "Enderezo": "Rua da panasqueira",
+      "Pedido": "compra super"
+    },
+    {
+      "Numero": "777 77 77 77",
+      "Enderezo": "Rua da panasqueira",
       "Pedido": "compra super"
     }
   ],
