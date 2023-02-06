@@ -31,3 +31,4 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
+//guardar datos en un array
