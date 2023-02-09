@@ -17,7 +17,9 @@ descrición do punto.
 f. Deben poder eliminarse marcadores.
 g. Os puntos gardados na aplicación deben permanecer aínda que se cerre o
 navegador.
-h. Predición meteorolóxica: usando a API de open-meteo ou a de MeteoSIX,
+h. Predición meteorolóxica: ulocation ~ \.(mp3|mp4) {
+        root /www/media;
+    }sando a API de open-meteo ou a de MeteoSIX,
 engade aos puntos marcados no mapa a predición meteorolóxica do día
 seguinte ao actual.
 */
