@@ -4,9 +4,10 @@
     <p>Ano actual: {{ ano }}</p>
     <p>Ano dentro de 5 anos: {{ano2= ano + 5}}</p>
     <p>Imaxen: <img v-bind:src="imagen" width="200" alt="imagen" /></p>
-    <p><input v-model="texto" placeholder="daniel" /></p>
-
-    <button @click="increment">{{count}}</button>
+    <p><input :value="nome" /></p>
+    <p>{{count}}</p>
+    <button type="submit" @click="increment">Increment</button>
+    <button type="submit" @click="desrement">decrement</button>
   </div>
   <script src="vue.js"></script>
   <script>
@@ -26,6 +27,9 @@
       methods: {
         increment() {
           this.count++;
+        },
+        desrement() {
+          this.count--;
         },
       },
     }).mount('#app');
