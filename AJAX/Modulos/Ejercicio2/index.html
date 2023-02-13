@@ -1,7 +1,12 @@
 <body>
   <div id="app">
-    {{ nome }} <br />{{ ano }} <br />
-    {{ano2}}
+    <p>Nome: {{ nome }}</p>
+    <p>Ano actual: {{ ano }}</p>
+    <p>Ano dentro de 5 anos: {{ano2= ano + 5}}</p>
+    <p>Imaxen: <img v-bind:src="imagen" width="200" alt="imagen" /></p>
+    <p><input v-model="texto" placeholder="daniel" /></p>
+
+    <button @click="increment">{{count}}</button>
   </div>
   <script src="vue.js"></script>
   <script>
@@ -12,8 +17,16 @@
         return {
           nome: 'Daniel',
           ano: 2023,
-          ano2:
+          ano2: 'ano dentro de 5 anos:',
+          imagen: 'imagen.jpg',
+          texto: 'Daniel',
+          count: 0,
         };
+      },
+      methods: {
+        increment() {
+          this.count++;
+        },
       },
     }).mount('#app');
   </script>
