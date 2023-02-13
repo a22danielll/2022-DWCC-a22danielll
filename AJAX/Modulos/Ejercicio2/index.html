@@ -6,8 +6,8 @@
     <p>Imaxen: <img v-bind:src="imagen" width="200" alt="imagen" /></p>
     <p><input :value="nome" /></p>
     <p>{{count}}</p>
-    <button type="submit" @click="increment">Increment</button>
-    <button type="submit" @click="desrement">decrement</button>
+    <button type="submit" @click="count++">Increment</button>
+    <button type="submit" @click="count--">decrement</button>
   </div>
   <script src="vue.js"></script>
   <script>
@@ -23,14 +23,6 @@
           texto: 'Daniel',
           count: 0,
         };
-      },
-      methods: {
-        increment() {
-          this.count++;
-        },
-        desrement() {
-          this.count--;
-        },
       },
     }).mount('#app');
   </script>
