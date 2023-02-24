@@ -21,14 +21,18 @@
       <section id="monster" class="container">
         <h2>Monstro</h2>
         <div class="healthbar">
-          <div class="healthbar__value"></div>
+          <div class="healthbar__value" :style="{width: vidaMonstro + '%'}">
+            {{vidaMonstro}}
+          </div>
         </div>
         httpClient
       </section>
       <section id="player" class="container">
         <h2>Vostede</h2>
         <div class="healthbar">
-          <div class="healthbar__value"></div>
+          <div class="healthbar__value" :style="{width: vidaVostede + '%'}">
+            {{vidaVostede}}
+          </div>
         </div>
       </section>
       <section class="container">
@@ -39,10 +43,12 @@
         <button>Novo xogo</button>
       </section>
       <section id="controls">
-        <button>ATAQUE</button>
-        <button>ATAQUE ESPECIAL</button>
-        <button>CURACIÓN</button>
-        <button>RENDERSE</button>
+        <button @click="ataque">ATAQUE</button>
+        <button :disabled="true" @click="ataqueEspecial">
+          ATAQUE ESPECIAL
+        </button>
+        <button @click="curacion">CURACIÓN</button>
+        <button @click="renderse">RENDERSE</button>
       </section>
       <section id="log" class="container">
         <h2>Rexistro da batalla</h2>
