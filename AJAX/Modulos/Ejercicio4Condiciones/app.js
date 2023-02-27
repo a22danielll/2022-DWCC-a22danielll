@@ -21,9 +21,7 @@ const game = Vue.createApp({
         this.vidaVostede - Math.floor(Math.random() * (15 - 8) + 8);
     },
     curacion() {
-      if (this.vidaVostede == 100) {
-        console.log('ya tienes todo la vida al completo');
-      } else if (this.vidaVostede < 100) {
+      if (this.vidaVostede <= 100) {
         this.vidaVostede =
           this.vidaVostede + Math.floor(Math.random() * (20 - 8) + 8);
       }
