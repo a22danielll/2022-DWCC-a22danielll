@@ -1,31 +1,29 @@
 <script>
   import HelloWorld from './components/HelloWorld.vue';
-  import childComponent from './components/childComponent.vue';
+  import Boton from './components/Boton.vue';
+  import Contador from './components/Contador.vue';
+  import Contactos from './components/Contactos.vue';
   export default {
     // Escribir as opcións do compoñente: data, methods, watch, ...
     data() {
       return {
-        count: 0,
+        telefono: false,
       };
     },
     // rexistro do compoñente
     components: {
-      childComponent,
+      Boton,
+      Contador,
+      Contactos,
     },
   };
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
-  <childComponent />
+  <!--<HelloWorld msg="Ola mundo" />-->
+  <Boton />
+  <Contador />
+  <contactos />
 </template>
 
 <style scoped>
