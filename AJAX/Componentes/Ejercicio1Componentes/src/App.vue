@@ -7,7 +7,18 @@
     // Escribir as opcións do compoñente: data, methods, watch, ...
     data() {
       return {
-        telefono: false,
+        contactos: [
+          {
+            name: 'daniel',
+            num: '693624694',
+            email: 'daniel@gmail.com',
+          },
+          {
+            name: 'martin',
+            num: '693693693',
+            email: 'martin@gmail.com',
+          },
+        ],
       };
     },
     // rexistro do compoñente
@@ -23,7 +34,12 @@
   <!--<HelloWorld msg="Ola mundo" />-->
   <Boton />
   <Contador />
-  <contactos />
+  <contactos
+    v-for="contacto in contactos"
+    :name="contacto.name"
+    :telefono="contacto.telefono"
+    :email="contacto.email"
+  />
 </template>
 
 <style scoped>
