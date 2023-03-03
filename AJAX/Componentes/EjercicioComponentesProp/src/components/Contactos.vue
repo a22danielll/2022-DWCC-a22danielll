@@ -5,38 +5,40 @@
     data() {
       return {
         msg: 'ejercicio1',
-        contactos: [
+        /*contactos: [
           {
+            id: 1,
             name: 'daniel',
             num: '693624694',
             email: 'daniel@gmail.com',
-            mostrar: true,
           },
           {
+            id: 2,
             name: 'martin',
             num: '693693693',
             email: 'martin@gmail.com',
-            mostrar: true,
           },
-        ],
+        ],*/
         mostrar: true,
       };
     },
     methods: {
       ocultarMostrar() {
-        if (this.mostrar == true) {
-          this.mostrar = false;
-        } else {
-          this.mostrar = true;
-        }
+        // if (this.mostrar == true) {
+        //   this.mostrar = false;
+        // } else {
+        //   this.mostrar = true;
+        // }
+        this.mostrar = !this.mostrar;
       },
     },
-    /*props: {
+    props: {
+      key: Number,
       name: String,
-      num: Number,
+      num: String,
       email: String,
-      mostrar: Boolean
-    },*/
+      favorito: String,
+    },
   };
 </script>
 
@@ -44,16 +46,13 @@
   <h3>{{ msg }}</h3>
 
   <div>
-    <h4 v-for="contacto in contactos">
-      <h4>{{ contacto.name }}</h4>
-      <div v-if="mostrar">
-        {{ contacto.num }}
-        {{ contacto.email }}
-      </div>
+    <h4>{{ name }}{{ favorito }}</h4>
+    <div v-if="mostrar">
+      {{ num }}
+      {{ email }}
+    </div>
 
-      <button @click="ocultarMostrar">{{ mostrar }}</button>
-
-      <button @click="ocultarMostrar">ocultar/mostrar</button>
-    </h4>
+    <button @click="ocultarMostrar">ocultar/mostrar</button>
+    <button @click="favorito">favorito</button>
   </div>
 </template>

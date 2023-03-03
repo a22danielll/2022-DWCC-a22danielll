@@ -8,16 +8,18 @@
       return {
         contactos: [
           {
+            id: 1,
             name: 'daniel',
-            num: 693624694,
+            num: '693624694',
             email: 'daniel@gmail.com',
-            mostrar: true,
+            favorito: '',
           },
           {
+            id: 2,
             name: 'martin',
-            num: 693693693,
+            num: '693693693',
             email: 'martin@gmail.com',
-            mostrar: true,
+            favorito: '',
           },
         ],
         mostrar: true,
@@ -27,12 +29,6 @@
     components: {
       Contactos,
     },
-    props: {
-      name: String,
-      num: Number,
-      email: String,
-      mostrar: Boolean,
-    },
   };
 </script>
 
@@ -41,9 +37,11 @@
 
   <Contactos
     v-for="contacto in contactos"
+    :key="contacto.id"
     :name="contacto.name"
     :num="contacto.num"
     :email="contacto.email"
+    :favorito="contacto.favorito"
   ></Contactos>
 </template>
 
