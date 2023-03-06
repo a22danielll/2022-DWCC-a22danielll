@@ -19,17 +19,25 @@
             email: 'martin@gmail.com',
           },
         ],*/
+        favorito: false,
         mostrar: true,
       };
     },
     methods: {
       ocultarMostrar() {
-        // if (this.mostrar == true) {
-        //   this.mostrar = false;
-        // } else {
-        //   this.mostrar = true;
-        // }
+        //if (this.mostrar == true) {
+        //  this.mostrar = false;
+        //} else {
+        //  this.mostrar = true;
+        //}
         this.mostrar = !this.mostrar;
+      },
+      favoritos() {
+        if (this.favorito == true) {
+          this.favorito = 'FAV';
+        } else {
+          this.favorito = '';
+        }
       },
     },
     props: {
@@ -37,7 +45,6 @@
       name: String,
       num: String,
       email: String,
-      favorito: String,
     },
   };
 </script>
@@ -46,13 +53,13 @@
   <h3>{{ msg }}</h3>
 
   <div>
-    <h4>{{ name }}{{ favorito }}</h4>
+    <h4 v-if="favoritos">{{ name }}{{ favorito }}</h4>
     <div v-if="mostrar">
       {{ num }}
       {{ email }}
     </div>
 
-    <button @click="ocultarMostrar">ocultar/mostrar</button>
-    <button @click="favorito">favorito</button>
+    <input type="button" @click="ocultarMostrar" value="mostrar/ocultar" />
+    <button @click="favoritos">Favorito</button>
   </div>
 </template>

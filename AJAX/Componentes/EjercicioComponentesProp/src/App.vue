@@ -2,6 +2,7 @@
   //import HelloWorld from './components/HelloWorld.vue';
 
   import Contactos from './components/Contactos.vue';
+
   export default {
     // Escribir as opcións do compoñente: data, methods, watch, ...
     data() {
@@ -12,19 +13,18 @@
             name: 'daniel',
             num: '693624694',
             email: 'daniel@gmail.com',
-            favorito: '',
           },
           {
             id: 2,
             name: 'martin',
             num: '693693693',
             email: 'martin@gmail.com',
-            favorito: '',
           },
         ],
         mostrar: true,
       };
     },
+
     // rexistro do compoñente
     components: {
       Contactos,
@@ -41,7 +41,6 @@
     :name="contacto.name"
     :num="contacto.num"
     :email="contacto.email"
-    :favorito="contacto.favorito"
   ></Contactos>
 </template>
 
