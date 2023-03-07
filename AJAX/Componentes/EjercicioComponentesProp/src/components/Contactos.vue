@@ -5,21 +5,8 @@
     data() {
       return {
         msg: 'ejercicio1',
-        /*contactos: [
-          {
-            id: 1,
-            name: 'daniel',
-            num: '693624694',
-            email: 'daniel@gmail.com',
-          },
-          {
-            id: 2,
-            name: 'martin',
-            num: '693693693',
-            email: 'martin@gmail.com',
-          },
-        ],*/
-        favorito: false,
+
+        favorito: '',
         mostrar: true,
       };
     },
@@ -33,12 +20,13 @@
         this.mostrar = !this.mostrar;
       },
       favoritos() {
-        if (this.favorito == true) {
-          this.favorito = 'FAV';
+        if (this.favorito == '') {
+          this.favorito = '⭐';
         } else {
           this.favorito = '';
         }
       },
+      eliminarContacto() {},
     },
     props: {
       key: Number,
@@ -61,5 +49,6 @@
 
     <input type="button" @click="ocultarMostrar" value="mostrar/ocultar" />
     <button @click="favoritos">Favorito</button>
+    <button @click="eliminarContacto">Eliminar</button>
   </div>
 </template>
