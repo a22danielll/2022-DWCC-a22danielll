@@ -5,36 +5,34 @@
     data() {
       return {
         titulo: 'Formulario',
+        name: String,
+        num: String,
+        email: String,
       };
     },
     methods: {
       añadir() {
-        this.contactos.push(this.id++, this.name, this.num, this.email);
+        this.$emit('nuevo', this.name, this.num, this.email);
       },
     },
-    props: {
-      id: Number,
-      name: String,
-      num: String,
-      email: String,
-    },
+    $emit: ['nuevo'],
   };
 </script>
 
 <template>
   <form>
     <h3>{{ titulo }}</h3>
-
     <label>Nombre: </label>
-    <input type="text" name="nombre" :value="name" />
+    <input type="text" v-model="name" />
+
     <br />
     <label>Telefono: </label>
-    <input type="text" name="telefono" :value="num" />
+    <input type="text" v-model="num" />
     <br />
     <label>Email: </label>
-    <input type="text" name="email" :value="email" />
+    <input type="text" v-model="email" />
     <br /><br />
-    <button @click="añadir()">Añadir</button>
+    <button @click.prevent="añadir()">Añadir</button>
   </form>
 </template>
 

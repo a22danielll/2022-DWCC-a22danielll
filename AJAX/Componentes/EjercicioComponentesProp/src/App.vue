@@ -46,7 +46,7 @@
     :email="contacto.email"
     :favorito="contacto.favorito"
   ></Contactos>
-  <Formulario></Formulario>
+  <Formulario> </Formulario>
 </template>
 
 <style scoped>

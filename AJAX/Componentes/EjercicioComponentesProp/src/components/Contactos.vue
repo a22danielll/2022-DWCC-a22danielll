@@ -26,7 +26,7 @@
           this.favorito = '';
         }
       },
-      eliminarContacto() {},
+      //eliminarContacto() {},
     },
     props: {
       key: Number,
@@ -49,6 +49,5 @@
 
     <input type="button" @click="ocultarMostrar" value="mostrar/ocultar" />
     <button @click="favoritos">Favorito</button>
-    <button @click="eliminarContacto">Eliminar</button>
   </div>
 </template>
