@@ -1,6 +1,7 @@
 <script>
   //import HelloWorld from './components/HelloWorld.vue';
 
+  import { noopDirectiveTransform } from '@vue/compiler-core';
   import Contactos from './components/Contactos.vue';
   import Formulario from './components/Formulario.vue';
   export default {
@@ -13,18 +14,37 @@
             name: 'daniel',
             num: '693624694',
             email: 'daniel@gmail.com',
-            favorito: '',
           },
           {
             id: 2,
             name: 'martin',
             num: '693693693',
             email: 'martin@gmail.com',
-            favorito: '',
           },
         ],
         mostrar: true,
       };
+    },
+    methods: {
+      anhadir(id, name, num, email) {
+        console.log(id, name, num, email);
+        let novoContacto = {
+          id: id,
+          name: name,
+          num: num,
+          email,
+        };
+
+        //this.contactos.push({ id, name, num, email });
+        this.contactos.push(novoContacto);
+      },
+      eliminarContacto(id, name, num, email) {
+        let index = this.contactos.indexOf(id, name, num, email);
+        if (index > -1) {
+          this.contactos.splice(index, { id, name, num, email });
+        }
+        return this.contactos;
+      },
     },
 
     // rexistro do compoñente
@@ -37,16 +57,16 @@
 
 <template>
   <!--<HelloWorld msg="Ola mundo" />-->
-
+  <h1>Ejercicio1</h1>
   <Contactos
+    @eliminar="eliminarContacto"
     v-for="contacto in contactos"
     :key="contacto.id"
     :name="contacto.name"
     :num="contacto.num"
     :email="contacto.email"
-    :favorito="contacto.favorito"
   ></Contactos>
-  <Formulario> </Formulario>
+  <Formulario @nuevo="anhadir"> </Formulario>
 </template>
 
 <style scoped>

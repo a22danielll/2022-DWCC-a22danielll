@@ -5,15 +5,16 @@
     data() {
       return {
         titulo: 'Formulario',
-        name: String,
-        num: String,
-        email: String,
+        id: '',
+        name: '',
+        num: '',
+        email: '',
       };
     },
     methods: {
-      añadir() {
-        this.$emit('nuevo', this.name, this.num, this.email);
-      },
+      /*anhadir() {
+        this.$emit('nuevo', this.id, this.name, this.num, this.email);
+      },*/
     },
     $emit: ['nuevo'],
   };
@@ -22,6 +23,9 @@
 <template>
   <form>
     <h3>{{ titulo }}</h3>
+    <label hidden>id: </label>
+    <input type="number" v-model="id" hidden />
+    <br />
     <label>Nombre: </label>
     <input type="text" v-model="name" />
 
@@ -32,7 +36,14 @@
     <label>Email: </label>
     <input type="text" v-model="email" />
     <br /><br />
-    <button @click.prevent="añadir()">Añadir</button>
+
+    <button
+      @click.prevent="
+        $emit('nuevo', this.id++, this.name, this.num, this.email)
+      "
+    >
+      Añadir2
+    </button>
   </form>
 </template>
 

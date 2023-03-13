@@ -26,7 +26,7 @@
           this.favorito = '';
         }
       },
-      //eliminarContacto() {},
+      $emit: ['eliminar'],
     },
     props: {
       key: Number,
@@ -34,12 +34,11 @@
       num: String,
       email: String,
     },
+    components: {},
   };
 </script>
 
 <template>
-  <h3>{{ msg }}</h3>
-
   <div>
     <h4 v-if="favoritos">{{ name }}{{ favorito }}</h4>
     <div v-if="mostrar">
@@ -49,5 +48,8 @@
 
     <input type="button" @click="ocultarMostrar" value="mostrar/ocultar" />
     <button @click="favoritos">Favorito</button>
+    <button @click.prevent="$emit('eliminar', this.name, this.num, this.email)">
+      Eliminar
+    </button>
   </div>
 </template>
