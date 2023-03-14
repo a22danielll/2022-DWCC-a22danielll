@@ -32,7 +32,7 @@
           id: id,
           name: name,
           num: num,
-          email,
+          email: email,
         };
 
         //this.contactos.push({ id, name, num, email });
