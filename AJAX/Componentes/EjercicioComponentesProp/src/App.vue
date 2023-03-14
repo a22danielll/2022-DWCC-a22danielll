@@ -38,12 +38,8 @@
         //this.contactos.push({ id, name, num, email });
         this.contactos.push(novoContacto);
       },
-      eliminarContacto(id, name, num, email) {
-        let index = this.contactos.indexOf(id, name, num, email);
-        if (index > -1) {
-          this.contactos.splice(index, { id, name, num, email });
-        }
-        return this.contactos;
+      eliminarContacto(id) {
+        this.contactos.pop(this.contactos.id == id);
       },
     },
 

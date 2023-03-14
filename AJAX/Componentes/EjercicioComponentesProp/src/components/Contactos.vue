@@ -48,8 +48,6 @@
 
     <input type="button" @click="ocultarMostrar" value="mostrar/ocultar" />
     <button @click="favoritos">Favorito</button>
-    <button @click.prevent="$emit('eliminar', this.name, this.num, this.email)">
-      Eliminar
-    </button>
+    <button @click.prevent="$emit('eliminar')">Eliminar</button>
   </div>
 </template>
