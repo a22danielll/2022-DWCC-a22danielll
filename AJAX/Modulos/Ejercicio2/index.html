@@ -1,0 +1,29 @@
+<body>
+  <div id="app">
+    <p>Nome: {{ nome }}</p>
+    <p>Ano actual: {{ ano }}</p>
+    <p>Ano dentro de 5 anos: {{ano2= ano + 5}}</p>
+    <p>Imaxen: <img v-bind:src="imagen" width="200" alt="imagen" /></p>
+    <p><input :value="nome" /></p>
+    <p>{{count}}</p>
+    <button type="submit" @click="count++">Increment</button>
+    <button type="submit" @click="count--">decrement</button>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    // A seguinte liña é equivalente ás dúas seguintes
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          nome: 'Daniel',
+          ano: 2023,
+          ano2: 'ano dentro de 5 anos:',
+          imagen: 'imagen.jpg',
+          texto: 'Daniel',
+          count: 0,
+        };
+      },
+    }).mount('#app');
+  </script>
+</body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <form>
+        <input v-model="mensaje" />
+        <br /><br />
+        <textarea v-model="texto"></textarea>
+        <br /><br />
+
+        <div>Checked:</div>
+
+        <input type="checkbox" id="jack" value="Jack" v-model="checked" />
+        <label for="jack">Jack</label>
+
+        <input type="checkbox" value="John" v-model="checked" />
+        <label for="john">John</label>
+
+        <input type="checkbox" value="Mike" v-model="checked" />
+        <label for="mike">Mike</label>
+
+        <br /><br />
+        <div>Picked:</div>
+
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+
+        <input type="radio" id="two" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+
+        <br /><br />
+        <div>Selected:</div>
+        <select v-model="selected">
+          <option disabled value="">Please select one</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+
+        <br /><br />
+        <button @click="reset">ccc</button>
+      </form>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      // A seguinte liña é equivalente ás dúas seguintes
+
+      const app = Vue.createApp({
+        data() {
+          return {
+            mensaje: '',
+            texto: '',
+            checked: [],
+            picked: '',
+            selected: '',
+          };
+        },
+        methods: {
+          reset(e) {
+            this.mensaje = '';
+            this.texto = '';
+            this.checked = '';
+            this.picked = '';
+            this.selected = '';
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      tr td {
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+      }
+      .cambio1 {
+        background-color: red;
+        border: 2px solid green;
+      }
+      .cambio2 {
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" class="contador">
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      // A seguinte liña é equivalente ás dúas seguintes
+
+      const app = Vue.createApp({
+        data() {
+          return {};
+        },
+        methods: {
+          /*cambiarStyle() {
+            if (this.cambio1 == false) {
+              this.cambio1 = true;
+            } else {
+              this.cambio1 = false;
+            }
+          },*/
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

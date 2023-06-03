@@ -1,0 +1,32 @@
+<body>
+  <div id="app">
+    {{ message}} {{ m2 }} {{ m3 }} {{ m4 }} {{ m5 }}
+    <p>{{rawHtml}}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    <div v-bind:id="dynamicId"></div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    // A seguinte liña é equivalente ás dúas seguintes
+
+    const arr = ['mesa', 'silla', 'pantalla'];
+    const producto = {
+      nombre: 'manzana',
+      categoria: 'frutas',
+      precio: 1.99,
+    };
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          m2: 2,
+          m3: true,
+          m4: arr,
+          m5: producto,
+          rawHtml: '<b>This should be bold.</b>',
+          dynamicId: 'Atributo dinámico',
+        };
+      },
+    }).mount('#app');
+  </script>
+</body>

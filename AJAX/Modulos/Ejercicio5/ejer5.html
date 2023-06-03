@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <label>numero 1: </label>
+      <input type="number" v-model="num1" />
+      <br /><br />
+      <label>numero 2: </label>
+      <input type="number" v-model="num2" />
+      <br /><br />
+      <p>Resultado: {{total= num1+num2}}</p>
+      <p>Numero par o impar: {{getNumParImpar}}</p>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      // A seguinte liña é equivalente ás dúas seguintes
+
+      const app = Vue.createApp({
+        data() {
+          return {
+            num1: null,
+            num2: null,
+            total: 0,
+          };
+        },
+        computed: {
+          getNumParImpar() {
+            return this.total % 2 == 0 ? 'par' : 'impar';
+          },
+        },
+        methods: {
+          /*suma() {
+            this.total = parseInt(this.num1) + parseInt(this.num2);
+          },*/
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

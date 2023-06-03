@@ -1,0 +1,16 @@
+<body>
+  <div id="app">{{ message }}</div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // A seguinte liña é equivalente ás dúas seguintes
+    // Vue.createApp({
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+        };
+      },
+    }).mount('#app');
+  </script>
+</body>

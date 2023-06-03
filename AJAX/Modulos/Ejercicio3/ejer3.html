@@ -1,0 +1,36 @@
+<body>
+  <div id="app">
+    <input type="text" :value="texto" @input="mostrar" />
+    <p>{{texto}}</p>
+    <br />
+    <button @click.middle="mostrarMensaje">ccc</button>
+    <br /><br />
+    <input type="text" :value="mensaje" @keyup.enter="setText" />
+    <p>{{mensaje}}</p>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    // A seguinte liña é equivalente ás dúas seguintes
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          texto: '',
+          mensaje: '',
+        };
+      },
+      methods: {
+        mostrar(e) {
+          this.texto = e.target.value;
+        },
+        mostrarMensaje() {
+          console.log('mensaje a mostrar');
+        },
+        setText(a) {
+          this.mensaje = a.target.value;
+          //a.tarjet.value="";
+        },
+      },
+    }).mount('#app');
+  </script>
+</body>
